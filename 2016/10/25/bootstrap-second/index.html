@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>bootstrap微金所项目实战 | qixianchuan的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="微金所项目实战1. 搭建Bootstrap页面骨架及项目目录结构12345678├─ /weijinsuo/ ··················· 项目所在目录└─┬─ /css/ ······················· 我们自己的CSS文件  ├─ /font/ ······················ 使用到的字体文件  ├─ /img/ ····················">
+<meta property="og:type" content="article">
+<meta property="og:title" content="bootstrap微金所项目实战">
+<meta property="og:url" content="http://yoursite.com/2016/10/25/bootstrap-second/index.html">
+<meta property="og:site_name" content="qixianchuan的博客">
+<meta property="og:description" content="微金所项目实战1. 搭建Bootstrap页面骨架及项目目录结构12345678├─ /weijinsuo/ ··················· 项目所在目录└─┬─ /css/ ······················· 我们自己的CSS文件  ├─ /font/ ······················ 使用到的字体文件  ├─ /img/ ····················">
+<meta property="og:updated_time" content="2016-10-25T01:34:59.941Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="bootstrap微金所项目实战">
+<meta name="twitter:description" content="微金所项目实战1. 搭建Bootstrap页面骨架及项目目录结构12345678├─ /weijinsuo/ ··················· 项目所在目录└─┬─ /css/ ······················· 我们自己的CSS文件  ├─ /font/ ······················ 使用到的字体文件  ├─ /img/ ····················">
+  
+    <link rel="alternate" href="/atom.xml" title="qixianchuan的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">qixianchuan的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">https://github.com/qixianchuan</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Søk"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-bootstrap-second" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/10/25/bootstrap-second/" class="article-date">
+  <time datetime="2016-10-25T01:32:21.811Z" itemprop="datePublished">2016-10-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      bootstrap微金所项目实战
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="微金所项目实战"><a href="#微金所项目实战" class="headerlink" title="微金所项目实战"></a>微金所项目实战</h1><h2 id="1-搭建Bootstrap页面骨架及项目目录结构"><a href="#1-搭建Bootstrap页面骨架及项目目录结构" class="headerlink" title="1. 搭建Bootstrap页面骨架及项目目录结构"></a>1. 搭建Bootstrap页面骨架及项目目录结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">├─ /weijinsuo/ ··················· 项目所在目录</div><div class="line">└─┬─ /css/ ······················· 我们自己的CSS文件</div><div class="line">  ├─ /font/ ······················ 使用到的字体文件</div><div class="line">  ├─ /img/ ······················· 使用到的图片文件</div><div class="line">  ├─ /js/ ························ 自己写的JS脚步</div><div class="line">  ├─ /lib/ ······················· 从第三方下载回来的库【只用不改】</div><div class="line">  ├─ /favicon.ico ················ 站点图标</div><div class="line">  └─ /index.html ················· 入口文件</div></pre></td></tr></table></figure>
+<h3 id="1-1-约定编码规范"><a href="#1-1-约定编码规范" class="headerlink" title="1.1.约定编码规范"></a>1.1.约定编码规范</h3><h4 id="1-1-1-HTML约定"><a href="#1-1-1-HTML约定" class="headerlink" title="1.1.1.HTML约定"></a>1.1.1.HTML约定</h4><ul>
+<li>在head中引入必要的CSS文件，优先引用第三方的CSS，方便我们自己的样式覆盖</li>
+<li>在body末尾引入必要的JS文件，优先引用第三方的JS，注意JS文件之间的依赖关系，比如bootstrap.js依赖jQuery，那就应该先引用jquery.js 然后引用bootstrap.js</li>
+</ul>
+<h4 id="1-1-2-CSS约定"><a href="#1-1-2-CSS约定" class="headerlink" title="1.1.2.CSS约定"></a>1.1.2.CSS约定</h4><ul>
+<li>除了公共级别样式，其余样式全部由 模块前缀</li>
+<li>尽量使用 直接子代选择器， 少用间接子代 避免错杀</li>
+</ul>
+<h3 id="1-2-HTML5文档结构"><a href="#1-2-HTML5文档结构" class="headerlink" title="1.2.HTML5文档结构"></a>1.2.HTML5文档结构</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh-CN"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>页面标题<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  </div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="1-3-Viewport设置"><a href="#1-3-Viewport设置" class="headerlink" title="1.3.Viewport设置"></a>1.3.Viewport设置</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, user-scalable=no, initial-scale=1.0"</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>html中插入视口设置，可以通过emmet <strong>meta:vp</strong> 插入</p>
+</blockquote>
+<h3 id="1-4-浏览器兼容模式"><a href="#1-4-浏览器兼容模式" class="headerlink" title="1.4.浏览器兼容模式"></a>1.4.浏览器兼容模式</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>html中插入兼容模式设置，可以通过emmet <strong>meta:compat</strong> 插入</p>
+</blockquote>
+<h3 id="1-5-favicon（站点图标）"><a href="#1-5-favicon（站点图标）" class="headerlink" title="1.5.favicon（站点图标）"></a>1.5.favicon（站点图标）</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"shortcut icon"</span> <span class="attr">type</span>=<span class="string">"image/x-icon"</span> <span class="attr">href</span>=<span class="string">"favicon.ico"</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>html中插入图标链接，可以通过emmet <strong>link:favicon</strong> 插入</p>
+</blockquote>
+<h3 id="1-6-引入相应的第三方文件"><a href="#1-6-引入相应的第三方文件" class="headerlink" title="1.6.引入相应的第三方文件"></a>1.6.引入相应的第三方文件</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"bootstrap.css"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"my.css"</span>&gt;</span></div><div class="line">...</div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"jquery.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"bootstrap.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"my.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="1-7-在我们默认的样式表中将默认字体设置为："><a href="#1-7-在我们默认的样式表中将默认字体设置为：" class="headerlink" title="1.7.在我们默认的样式表中将默认字体设置为："></a>1.7.在我们默认的样式表中将默认字体设置为：</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span>&#123;</div><div class="line">  <span class="attribute">font-family</span>: <span class="string">"Helvetica Neue"</span>, </div><div class="line">                Helvetica, </div><div class="line">                Microsoft Yahei, </div><div class="line">                Hiragino Sans GB, </div><div class="line">                WenQuanYi Micro Hei, </div><div class="line">                sans-serif;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="2-完成页面空结构"><a href="#2-完成页面空结构" class="headerlink" title="2.完成页面空结构"></a>2.完成页面空结构</h2><blockquote>
+<p>先划分好页面中的大容器，然后在具体看每一个容器中单独的情况</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- 头部区域 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">header</span>&gt;</span><span class="tag">&lt;/<span class="name">header</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- /头部区域 --&gt;</span></div><div class="line">  <span class="comment">&lt;!-- 广告轮播 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">section</span>&gt;</span><span class="tag">&lt;/<span class="name">section</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- /广告轮播 --&gt;</span></div><div class="line">  <span class="comment">&lt;!-- 特色介绍 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">section</span>&gt;</span><span class="tag">&lt;/<span class="name">section</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- /特色介绍 --&gt;</span></div><div class="line">  <span class="comment">&lt;!-- 立即预约 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">section</span>&gt;</span><span class="tag">&lt;/<span class="name">section</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- /立即预约 --&gt;</span></div><div class="line">  <span class="comment">&lt;!-- 产品推荐 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">section</span>&gt;</span><span class="tag">&lt;/<span class="name">section</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- /产品推荐 --&gt;</span></div><div class="line">  <span class="comment">&lt;!-- 新闻列表 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">section</span>&gt;</span><span class="tag">&lt;/<span class="name">section</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- /新闻列表 --&gt;</span></div><div class="line">  <span class="comment">&lt;!-- 合作伙伴 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">section</span>&gt;</span><span class="tag">&lt;/<span class="name">section</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- /合作伙伴 --&gt;</span></div><div class="line">  <span class="comment">&lt;!-- 脚注区域 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">footer</span>&gt;</span><span class="tag">&lt;/<span class="name">footer</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- /脚注区域 --&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="3-构建顶部通栏"><a href="#3-构建顶部通栏" class="headerlink" title="3.构建顶部通栏"></a>3.构建顶部通栏</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">header</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"topbar"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">header</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="3-1-container类"><a href="#3-1-container类" class="headerlink" title="3.1.container类"></a>3.1.container类</h3><ul>
+<li>用于定义一个固定宽度且居中的版心</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"topbar"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--</span></div><div class="line">      此处的代码会显示在一个固定宽度且居中的容器中</div><div class="line">      该容器的宽度会跟随屏幕的变化而变化</div><div class="line">    --&gt;</div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="3-2-栅格系统"><a href="#3-2-栅格系统" class="headerlink" title="3.2.栅格系统"></a>3.2.栅格系统</h3><ul>
+<li>Bootstrap中定义了一套响应式的网格系统，</li>
+<li>其使用方式就是将一个容器划分成12列，</li>
+<li>然后通过col-xx-xx的类名控制每一列的占比</li>
+</ul>
+<h4 id="3-2-1-row类"><a href="#3-2-1-row类" class="headerlink" title="3.2.1.row类"></a>3.2.1.row类</h4><ul>
+<li>因为每一个列默认有一个15px的左右外边距</li>
+<li>row类的一个作用就是通过左右-15px屏蔽掉这个边距</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="3-2-2-col-类"><a href="#3-2-2-col-类" class="headerlink" title="3.2.2.col-\-*类"></a>3.2.2.col-<em>\</em>-*类</h4><ul>
+<li>col-xs-[列数]：在超小屏幕下展示几份</li>
+<li>col-sm-[列数]：在小屏幕下展示几份</li>
+<li>col-md-[列数]：在中等屏幕下展示几份</li>
+<li>col-lg-[列数]：在大屏幕下展示几份</li>
+<li><strong>xs</strong> : 超小屏幕 手机 (&lt;768px)  </li>
+<li><strong>sm</strong> : 小屏幕 平板 (≥768px) </li>
+<li><strong>md</strong> : 中等屏幕 桌面显示器 (≥992px) </li>
+<li><strong>lg</strong> : 大屏幕 大桌面显示器 (≥1200px)</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-2 text-center"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-5 text-center"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-2 text-center"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-3 text-center"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>此处顶部通栏已经被划分成四列<br>text-center的作用就是让内部内容居中显示</p>
+</blockquote>
+<h3 id="3-2-字体图标"><a href="#3-2-字体图标" class="headerlink" title="3.2.字体图标"></a>3.2.字体图标</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">font-face</span> &#123;</div><div class="line">  <span class="attribute">font-family</span>: <span class="string">'itcast'</span>;</div><div class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'../font/MiFie-Web-Font.eot'</span>) <span class="built_in">format</span>(<span class="string">'embedded-opentype'</span>), <span class="built_in">url</span>(<span class="string">'../font/MiFie-Web-Font.svg'</span>) <span class="built_in">format</span>(<span class="string">'svg'</span>), <span class="built_in">url</span>(<span class="string">'../font/MiFie-Web-Font.ttf'</span>) <span class="built_in">format</span>(<span class="string">'truetype'</span>), <span class="built_in">url</span>(<span class="string">'../font/MiFie-Web-Font.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-attr">[class^="icon-"]</span>,</div><div class="line"><span class="selector-attr">[class*=" icon-"]</span> &#123;</div><div class="line">  <span class="comment">/*注意上面选择器中间的空格*/</span></div><div class="line">  <span class="comment">/*我们使用的名为itcast的字体就是上面的@font-face的方式声明的*/</span></div><div class="line">  <span class="attribute">font-family</span>: itcast;</div><div class="line">  <span class="attribute">font-style</span>: normal;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.icon-mobilephone</span><span class="selector-pseudo">::before</span>&#123;</div><div class="line">  <span class="attribute">content</span>: <span class="string">'\e908'</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-2 text-center"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"mobile-link"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"icon-mobile"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>手机微金所<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 这里使用的是bootstrap中的字体图标 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon-chevron-down"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"..."</span> <span class="attr">alt</span>=<span class="string">""</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="字体文件格式"><a href="#字体文件格式" class="headerlink" title="字体文件格式"></a>字体文件格式</h4><ul>
+<li>eot : embedded-opentype</li>
+<li>svg : svg</li>
+<li>ttf : truetype</li>
+<li>woff : woff</li>
+</ul>
+<h3 id="3-4-hover图片展示"><a href="#3-4-hover图片展示" class="headerlink" title="3.4.hover图片展示"></a>3.4.hover图片展示</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.mobile-link</span><span class="selector-pseudo">:hover</span> &gt; <span class="selector-tag">img</span> &#123;</div><div class="line">  <span class="attribute">display</span>: block;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3-5-按钮样式生成"><a href="#3-5-按钮样式生成" class="headerlink" title="3.5.按钮样式生成"></a>3.5.按钮样式生成</h3><ul>
+<li><a href="http://blog.koalite.com/bbg/" target="_blank" rel="external">http://blog.koalite.com/bbg/</a></li>
+<li>可以通过界面生成一个新的按钮样式</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.btn-itcast</span> &#123;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#ffffff</span>;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#E92322</span>;</div><div class="line">  <span class="attribute">border-color</span>: <span class="number">#DB3B43</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.btn-itcast</span><span class="selector-pseudo">:hover</span>,</div><div class="line"><span class="selector-class">.btn-itcast</span><span class="selector-pseudo">:focus</span>,</div><div class="line"><span class="selector-class">.btn-itcast</span><span class="selector-pseudo">:active</span>,</div><div class="line"><span class="selector-class">.btn-itcast</span><span class="selector-class">.active</span>,</div><div class="line"><span class="selector-class">.open</span> <span class="selector-class">.dropdown-toggle</span><span class="selector-class">.btn-itcast</span> &#123;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#ffffff</span>;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#E92322</span>;</div><div class="line">  <span class="attribute">border-color</span>: <span class="number">#DB3B43</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.btn-itcast</span><span class="selector-pseudo">:active</span>,</div><div class="line"><span class="selector-class">.btn-itcast</span><span class="selector-class">.active</span>,</div><div class="line"><span class="selector-class">.open</span> <span class="selector-class">.dropdown-toggle</span><span class="selector-class">.btn-itcast</span> &#123;</div><div class="line">  <span class="attribute">background-image</span>: none;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.btn-itcast</span><span class="selector-class">.disabled</span>,</div><div class="line"><span class="selector-class">.btn-itcast</span><span class="selector-attr">[disabled]</span>,</div><div class="line"><span class="selector-tag">fieldset</span><span class="selector-attr">[disabled]</span> <span class="selector-class">.btn-itcast</span>,</div><div class="line"><span class="selector-class">.btn-itcast</span><span class="selector-class">.disabled</span><span class="selector-pseudo">:hover</span>,</div><div class="line"><span class="selector-class">.btn-itcast</span><span class="selector-attr">[disabled]</span><span class="selector-pseudo">:hover</span>,</div><div class="line"><span class="selector-tag">fieldset</span><span class="selector-attr">[disabled]</span> <span class="selector-class">.btn-itcast</span><span class="selector-pseudo">:hover</span>,</div><div class="line"><span class="selector-class">.btn-itcast</span><span class="selector-class">.disabled</span><span class="selector-pseudo">:focus</span>,</div><div class="line"><span class="selector-class">.btn-itcast</span><span class="selector-attr">[disabled]</span><span class="selector-pseudo">:focus</span>,</div><div class="line"><span class="selector-tag">fieldset</span><span class="selector-attr">[disabled]</span> <span class="selector-class">.btn-itcast</span><span class="selector-pseudo">:focus</span>,</div><div class="line"><span class="selector-class">.btn-itcast</span><span class="selector-class">.disabled</span><span class="selector-pseudo">:active</span>,</div><div class="line"><span class="selector-class">.btn-itcast</span><span class="selector-attr">[disabled]</span><span class="selector-pseudo">:active</span>,</div><div class="line"><span class="selector-tag">fieldset</span><span class="selector-attr">[disabled]</span> <span class="selector-class">.btn-itcast</span><span class="selector-pseudo">:active</span>,</div><div class="line"><span class="selector-class">.btn-itcast</span><span class="selector-class">.disabled</span><span class="selector-class">.active</span>,</div><div class="line"><span class="selector-class">.btn-itcast</span><span class="selector-attr">[disabled]</span><span class="selector-class">.active</span>,</div><div class="line"><span class="selector-tag">fieldset</span><span class="selector-attr">[disabled]</span> <span class="selector-class">.btn-itcast</span><span class="selector-class">.active</span> &#123;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#E92322</span>;</div><div class="line">  <span class="attribute">border-color</span>: <span class="number">#DB3B43</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.btn-itcast</span> <span class="selector-class">.badge</span> &#123;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#E92322</span>;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#ffffff</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3-5小屏幕隐藏"><a href="#3-5小屏幕隐藏" class="headerlink" title="3.5小屏幕隐藏"></a>3.5小屏幕隐藏</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"topbar hidden-xs hidden-sm"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"topbar visible-md visible-lg"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>hidden-xx</strong> : 在某种屏幕下隐藏 </li>
+<li><strong>visible-xx</strong> : 在某种屏幕尺寸下显示<ul>
+<li>visible-xx-xx：最后一个xx是决定显示时的display到底是啥</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-导航通栏"><a href="#4-导航通栏" class="headerlink" title="4.导航通栏"></a>4.导航通栏</h2><ul>
+<li>在使用了boostrap过后，大多数界面元素都是通过bootstrap提供好的界面组件修改得来</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">nav</span> <span class="attr">class</span>=<span class="string">"navbar navbar-itcast navbar-static-top"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"navbar-header"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"btn"</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"navbar-toggle collapsed"</span> <span class="attr">data-toggle</span>=<span class="string">"collapse"</span> <span class="attr">data-target</span>=<span class="string">"#nav_list"</span> <span class="attr">aria-expanded</span>=<span class="string">"false"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"sr-only"</span>&gt;</span>切换菜单<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon-bar"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon-bar"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon-bar"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"navbar-brand"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"icon-icon"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"icon-logo"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"nav_list"</span> <span class="attr">class</span>=<span class="string">"collapse navbar-collapse"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"nav navbar-nav"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"active"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>我要投资<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>我要借款<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>平台介绍<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>新手专区<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>最新动态<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>微论坛<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"nav navbar-nav navbar-right hidden-sm"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>个人中心<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="4-1-Bootstrap扩展"><a href="#4-1-Bootstrap扩展" class="headerlink" title="4.1.Bootstrap扩展"></a>4.1.Bootstrap扩展</h3><ul>
+<li>通过bootstrap文档对导航条样式的设置发现，其实本身是有一个类似于主题的概念</li>
+<li>navbar-default：默认的外观</li>
+<li>navbar-inverse：暗色背景的样式</li>
+<li>所以我们希望可以通过自定义一套完整的风格：<ul>
+<li>navbar-itcast</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.navbar-itcast&#123;</div><div class="line">  ...</div><div class="line">&#125;</div><div class="line">...具体代码参考navbar-default实现即可</div></pre></td></tr></table></figure>
+<h3 id="4-2-品牌logo"><a href="#4-2-品牌logo" class="headerlink" title="4.2.品牌logo"></a>4.2.品牌logo</h3><ul>
+<li>任然使用字体图标</li>
+</ul>
+<h3 id="4-3-菜单行高调整"><a href="#4-3-菜单行高调整" class="headerlink" title="4.3.菜单行高调整"></a>4.3.菜单行高调整</h3><ul>
+<li>默认样式中菜单的行高为20px，我们可以调整为自己想要的高度</li>
+<li>一般都是通过自己的样式去覆盖</li>
+</ul>
+<h2 id="5-轮播图"><a href="#5-轮播图" class="headerlink" title="5.轮播图"></a>5.轮播图</h2><h3 id="5-1-Bootstrap-JS插件使用"><a href="#5-1-Bootstrap-JS插件使用" class="headerlink" title="5.1.Bootstrap JS插件使用"></a>5.1.Bootstrap JS插件使用</h3><ul>
+<li>在一个较小屏幕下展示一个超宽的图片，想让图片居中显示<ul>
+<li>背景图</li>
+<li>p-a l 50% m-l -width/2</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-2-background使用"><a href="#5-2-background使用" class="headerlink" title="5.2.background使用"></a>5.2.background使用</h3><h4 id="5-2-1-background-size"><a href="#5-2-1-background-size" class="headerlink" title="5.2.1.background-size"></a>5.2.1.background-size</h4><ul>
+<li>length<ul>
+<li>如100px 100px</li>
+</ul>
+</li>
+<li>percentage<ul>
+<li>如90% 90%</li>
+</ul>
+</li>
+<li>cover<ul>
+<li>背景图片的较小边放大到目标大小结束</li>
+</ul>
+</li>
+<li>contain<ul>
+<li>相反</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-3-图片响应式"><a href="#5-3-图片响应式" class="headerlink" title="5.3.图片响应式"></a>5.3.图片响应式</h3><ul>
+<li>目的<ul>
+<li>各种终端都需要正常显示图片</li>
+<li>移动端应该使用更小（体积）的图片</li>
+</ul>
+</li>
+<li>实现方式</li>
+</ul>
+<h3 id="5-4-window-resize事件"><a href="#5-4-window-resize事件" class="headerlink" title="5.4.window resize事件"></a>5.4.window resize事件</h3><h2 id="6-网站特性"><a href="#6-网站特性" class="headerlink" title="6.网站特性"></a>6.网站特性</h2><h3 id="6-1-网格系统"><a href="#6-1-网格系统" class="headerlink" title="6.1.网格系统"></a>6.1.网格系统</h3><h3 id="6-2-媒体对象样式"><a href="#6-2-媒体对象样式" class="headerlink" title="6.2.媒体对象样式"></a>6.2.媒体对象样式</h3><h3 id="6-3-响应式辅助类型"><a href="#6-3-响应式辅助类型" class="headerlink" title="6.3.响应式辅助类型"></a>6.3.响应式辅助类型</h3><pre><code>- hidden-xx
+</code></pre><h2 id="7-预约投标"><a href="#7-预约投标" class="headerlink" title="7.预约投标"></a>7.预约投标</h2><h3 id="7-1-pull-left"><a href="#7-1-pull-left" class="headerlink" title="7.1.pull-left"></a>7.1.pull-left</h3><h3 id="7-2-pull-right"><a href="#7-2-pull-right" class="headerlink" title="7.2.pull-right"></a>7.2.pull-right</h3><h2 id="8-投资产品"><a href="#8-投资产品" class="headerlink" title="8.投资产品"></a>8.投资产品</h2><h3 id="8-1-Tab选项卡"><a href="#8-1-Tab选项卡" class="headerlink" title="8.1.Tab选项卡"></a>8.1.Tab选项卡</h3><h3 id="8-2-网格系统"><a href="#8-2-网格系统" class="headerlink" title="8.2.网格系统"></a>8.2.网格系统</h3><h3 id="8-3-before"><a href="#8-3-before" class="headerlink" title="8.3.::before"></a>8.3.::before</h3><h3 id="8-4-after"><a href="#8-4-after" class="headerlink" title="8.4.::after"></a>8.4.::after</h3><h3 id="8-5-tooltip插件"><a href="#8-5-tooltip插件" class="headerlink" title="8.5.tooltip插件"></a>8.5.tooltip插件</h3><h2 id="9-新闻资讯"><a href="#9-新闻资讯" class="headerlink" title="9.新闻资讯"></a>9.新闻资讯</h2><h3 id="9-1-Tab选项卡"><a href="#9-1-Tab选项卡" class="headerlink" title="9.1.Tab选项卡"></a>9.1.Tab选项卡</h3><h3 id="9-2-响应式偏移"><a href="#9-2-响应式偏移" class="headerlink" title="9.2.响应式偏移"></a>9.2.响应式偏移</h3><h2 id="10-合作伙伴"><a href="#10-合作伙伴" class="headerlink" title="10.合作伙伴"></a>10.合作伙伴</h2><h3 id="10-1-相邻兄弟选择器"><a href="#10-1-相邻兄弟选择器" class="headerlink" title="10.1.相邻兄弟选择器"></a>10.1.相邻兄弟选择器</h3><h2 id="11-登录对话框"><a href="#11-登录对话框" class="headerlink" title="11.登录对话框"></a>11.登录对话框</h2><h3 id="11-1模态框"><a href="#11-1模态框" class="headerlink" title="11.1模态框"></a>11.1模态框</h3><h3 id="11-2表单样式"><a href="#11-2表单样式" class="headerlink" title="11.2表单样式"></a>11.2表单样式</h3><h2 id="12-导航吸顶"><a href="#12-导航吸顶" class="headerlink" title="12.导航吸顶"></a>12.导航吸顶</h2><h3 id="12-1affix组件"><a href="#12-1affix组件" class="headerlink" title="12.1affix组件"></a>12.1affix组件</h3><h2 id="13-深度自定义"><a href="#13-深度自定义" class="headerlink" title="13.深度自定义"></a>13.深度自定义</h2><h3 id="13-1-http-v3-bootcss-com-customize"><a href="#13-1-http-v3-bootcss-com-customize" class="headerlink" title="13.1.http://v3.bootcss.com/customize"></a>13.1.<a href="http://v3.bootcss.com/customize" target="_blank" rel="external">http://v3.bootcss.com/customize</a></h3><h3 id="13-2通过-Less-文件修改"><a href="#13-2通过-Less-文件修改" class="headerlink" title="13.2通过 Less 文件修改"></a>13.2通过 Less 文件修改</h3><h2 id="14-version-4"><a href="#14-version-4" class="headerlink" title="14.version 4"></a>14.version 4</h2><p><a href="http://www.cnblogs.com/micua/p/bootstrap-version4-alpha.html" target="_blank" rel="external">http://www.cnblogs.com/micua/p/bootstrap-version4-alpha.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/10/25/bootstrap-second/" data-id="ciuotptmf0001eotwidqq3lfm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/10/25/bootstrap-first/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Bootstrap入门</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Arkiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Siste innlegg</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/10/25/bootstrap-second/">bootstrap微金所项目实战</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/25/bootstrap-first/">Bootstrap入门</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/25/node-first/">流行框架第三天：Angular入门</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/24/angular-first/">流行框架第三天：Angular入门</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/24/git-second/">流行框架第二天：Git与Angular入门</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 qixianchuan<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
