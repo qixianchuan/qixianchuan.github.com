@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Gulp入门 | qixianchuan的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="当下的前端开发
+不再是简简单单的使用HTML+CSS+JavaScript这些简单的技术构建网页应用程序了
+我们要提高效率，就必须减少重复的工作
+使用less之类预处理的CSS coffeescript
+提供开发阶段的便利，开发阶段更快捷
+现在的开发行业优质的开发人员是不应该将精力放在这些重复性质的工作上
+Gulp就是一种可以自动化完成我们开发过程中大量的重复工作
+预处理语言的编译
+js css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gulp入门">
+<meta property="og:url" content="http://yoursite.com/2016/10/25/glup-first/index.html">
+<meta property="og:site_name" content="qixianchuan的博客">
+<meta property="og:description" content="当下的前端开发
+不再是简简单单的使用HTML+CSS+JavaScript这些简单的技术构建网页应用程序了
+我们要提高效率，就必须减少重复的工作
+使用less之类预处理的CSS coffeescript
+提供开发阶段的便利，开发阶段更快捷
+现在的开发行业优质的开发人员是不应该将精力放在这些重复性质的工作上
+Gulp就是一种可以自动化完成我们开发过程中大量的重复工作
+预处理语言的编译
+js css">
+<meta property="og:updated_time" content="2016-10-25T02:12:28.997Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gulp入门">
+<meta name="twitter:description" content="当下的前端开发
+不再是简简单单的使用HTML+CSS+JavaScript这些简单的技术构建网页应用程序了
+我们要提高效率，就必须减少重复的工作
+使用less之类预处理的CSS coffeescript
+提供开发阶段的便利，开发阶段更快捷
+现在的开发行业优质的开发人员是不应该将精力放在这些重复性质的工作上
+Gulp就是一种可以自动化完成我们开发过程中大量的重复工作
+预处理语言的编译
+js css">
+  
+    <link rel="alternate" href="/atom.xml" title="qixianchuan的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">qixianchuan的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">https://github.com/qixianchuan</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-glup-first" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/10/25/glup-first/" class="article-date">
+  <time datetime="2016-10-25T02:11:51.908Z" itemprop="datePublished">2016-10-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Gulp入门
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="当下的前端开发"><a href="#当下的前端开发" class="headerlink" title="当下的前端开发"></a>当下的前端开发</h2><ul>
+<li>不再是简简单单的使用HTML+CSS+JavaScript这些简单的技术构建网页应用程序了</li>
+<li>我们要提高效率，就必须减少重复的工作</li>
+<li>使用less之类预处理的CSS coffeescript</li>
+<li>提供开发阶段的便利，开发阶段更快捷</li>
+<li>现在的开发行业优质的开发人员是不应该将精力放在这些重复性质的工作上</li>
+<li>Gulp就是一种可以自动化完成我们开发过程中大量的重复工作<ul>
+<li>预处理语言的编译</li>
+<li>js css html 压缩混淆</li>
+<li>图片体积优化</li>
+</ul>
+</li>
+<li>除gulp之外还有一些类似的自动化工具，比如grunt</li>
+<li>what how why</li>
+</ul>
+<h2 id="Gulp简介"><a href="#Gulp简介" class="headerlink" title="Gulp简介"></a>Gulp简介</h2><ul>
+<li>当下最流行的自动化工具<ul>
+<li>什么是自动化构建工具？</li>
+<li>自动完成一系列重复的操作<ul>
+<li>less → css</li>
+<li>coffeescript → js</li>
+<li>css压缩</li>
+<li>js混淆</li>
+<li>html压缩</li>
+<li>img尺寸优化</li>
+<li>。。。。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>链接：</p>
+<ul>
+<li><a href="http://gulpjs.com/" target="_blank" rel="external">官网</a></li>
+<li><a href="http://www.gulpjs.com.cn/" target="_blank" rel="external">中文网</a></li>
+</ul>
+</li>
+<li><p>gulp的包既包含工具，也包含一些编程的API</p>
+</li>
+</ul>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
+<li>安装Node.js<ul>
+<li>Node.js 给前端带来了一场工业革命</li>
+<li><a href="http://npm.taobao.org/" target="_blank" rel="external">http://npm.taobao.org/</a></li>
+<li>安装完成过后可以通过命令行工具node -v</li>
+<li>安装nodejs过程会自动安装npm(node packages manager)</li>
+<li>npm 3 以前的版本文件依赖是层级依赖</li>
+<li>npm 3 以后依赖关系改为平行依赖（windows上路径过长问题）</li>
+<li>gulp本身是node的模块</li>
+</ul>
+</li>
+<li>安装 gulp 命令行工具<ul>
+<li><code>npm install -g gulp</code></li>
+<li>-g 指的是在全局作用域中安装</li>
+<li>测试命令 gulp -v</li>
+</ul>
+</li>
+<li>初始化 gulp 项目<ul>
+<li>在本地安装gulp包</li>
+<li>npm install gulp –save</li>
+</ul>
+</li>
+<li>创建任务 - gulpfile.js<ul>
+<li>gulpfile.js 就是gulp的主文件</li>
+</ul>
+</li>
+</ul>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><ul>
+<li>定义一个任务</li>
+<li>复制单个文件</li>
+<li>复制多个文件</li>
+<li><a href="https://github.com/isaacs/node-glob" target="_blank" rel="external">globs匹配语法</a><ul>
+<li>src/*</li>
+<li>src/*/*</li>
+<li>src/**/*</li>
+<li>src/*.jpg</li>
+<li>src/*.{jpg,png}</li>
+<li>多个globs<ul>
+<li>[‘src/*.{jpg,png}’,’a/a.html’]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>排除某些文件<ul>
+<li>!xxxxx</li>
+</ul>
+</li>
+<li>默认任务<ul>
+<li>gulp 中的任务名有个特殊值 default</li>
+</ul>
+</li>
+<li>文件监视自动执行任务</li>
+</ul>
+<h2 id="常用插件"><a href="#常用插件" class="headerlink" title="常用插件"></a>常用插件</h2><ul>
+<li><a href="https://www.npmjs.com/package/gulp-less" target="_blank" rel="external">编译 Less：gulp-less</a></li>
+<li><a href="https://www.npmjs.com/package/gulp-jade" target="_blank" rel="external">编译 Jade: gulp-jade</a></li>
+<li><a href="https://www.npmjs.com/package/gulp-connect" target="_blank" rel="external">创建本地服务器：gulp-connect</a></li>
+<li><a href="https://www.npmjs.com/package/gulp-concat" target="_blank" rel="external">合并文件：gulp-concat</a></li>
+<li><a href="https://www.npmjs.com/package/gulp-uglify" target="_blank" rel="external">最小化 js 文件：gulp-uglify</a></li>
+<li><a href="https://www.npmjs.com/package/gulp-rename" target="_blank" rel="external">重命名文件：gulp-rename</a></li>
+<li><a href="https://www.npmjs.com/package/gulp-minify-css" target="_blank" rel="external">最小化 css 文件：gulp-minify-css</a></li>
+<li><a href="https://www.npmjs.com/package/gulp-minify-html" target="_blank" rel="external">压缩html文件 gulp-minify-html</a></li>
+<li><a href="https://www.npmjs.com/package/gulp-imagemin" target="_blank" rel="external">最小化图像：gulp-imagemin</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/10/25/glup-first/" data-id="ciuouxfdo0000nctwmd90l08a" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/10/25/glup-demo/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">glup-demo</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/10/25/glup-first/">Gulp入门</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/25/glup-demo/">glup-demo</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/25/bootstrap-second/">bootstrap微金所项目实战</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/25/bootstrap-first/">Bootstrap入门</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/25/node-first/">流行框架第三天：Angular入门</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 qixianchuan<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
