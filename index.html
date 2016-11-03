@@ -55,9 +55,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -67,6 +67,77 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-bower-md" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/03/bower-md/" class="article-date">
+  <time datetime="2016-11-03T03:49:51.168Z" itemprop="datePublished">2016-11-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>Bower常用命令</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">$ # 初始化一个Bower的配置文件</div><div class="line">$ bower init</div><div class="line">$ # 安装一个包</div><div class="line">$ bower install bootstrap</div><div class="line">$ # GitHub shorthand</div><div class="line">$ bower install desandro/masonry</div><div class="line">$ # Git endpoint</div><div class="line">$ bower install git://github.com/user/package.git</div><div class="line">$ # URL</div><div class="line">$ bower install http://example.com/script.js</div><div class="line">$ # 安装一个包并将其添加到配置文件</div><div class="line">$ bower install bootstrap --save</div><div class="line">$ # 卸载一个包</div><div class="line">$ bower uninstall bootstrap</div><div class="line">$ # 更新所有的包</div><div class="line">$ bower update</div></pre></td></tr></table></figure>
+<ul>
+<li>Bower配置文件<ul>
+<li>项目根目录</li>
+<li>用户主目录</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/03/bower-md/" data-id="civ1tezbm0002u0twywydwh0a" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-git-md" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/03/git-md/" class="article-date">
+  <time datetime="2016-11-03T03:49:12.330Z" itemprop="datePublished">2016-11-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="5-3-1-初始化一个本地GIT仓储"><a href="#5-3-1-初始化一个本地GIT仓储" class="headerlink" title="5.3.1.初始化一个本地GIT仓储"></a>5.3.1.初始化一个本地GIT仓储</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 定位到仓储文件夹目录</div><div class="line">$ cd /dir</div><div class="line">// 初始化本地仓储</div><div class="line">$ git init</div></pre></td></tr></table></figure>
+<h4 id="5-3-2-添加本地GIT忽略清单文件-gitignore"><a href="#5-3-2-添加本地GIT忽略清单文件-gitignore" class="headerlink" title="5.3.2.添加本地GIT忽略清单文件.gitignore"></a>5.3.2.添加本地GIT忽略清单文件.gitignore</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 添加OS X中系统文件.DS_Store到忽略清单，这将忽略项目任意目录下的.DS_Store文件或是文件夹</div><div class="line">$ echo .DS_Store &gt;&gt; .gitignore</div></pre></td></tr></table></figure>
+<h4 id="5-3-3-查看本地仓储的变更状态"><a href="#5-3-3-查看本地仓储的变更状态" class="headerlink" title="5.3.3.查看本地仓储的变更状态"></a>5.3.3.查看本地仓储的变更状态</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git status</div></pre></td></tr></table></figure>
+<h4 id="5-3-4-添加本地暂存（托管）文件"><a href="#5-3-4-添加本地暂存（托管）文件" class="headerlink" title="5.3.4.添加本地暂存（托管）文件"></a>5.3.4.添加本地暂存（托管）文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 添加指定文件名的文件</div><div class="line">$ git add README.md</div><div class="line">// 添加通配符匹配的文件</div><div class="line">$ git add *.md</div><div class="line">// 添加所有未托管的文件（忽略.gitignore清单中的列表）</div><div class="line">$ git add --all</div></pre></td></tr></table></figure>
+<h4 id="5-3-5-提交被托管的文件变化到本地仓储"><a href="#5-3-5-提交被托管的文件变化到本地仓储" class="headerlink" title="5.3.5.提交被托管的文件变化到本地仓储"></a>5.3.5.提交被托管的文件变化到本地仓储</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit -m &apos;Initial commit(change log)&apos;</div></pre></td></tr></table></figure>
+<h4 id="5-3-6-为仓储添加远端（服务器端）地址"><a href="#5-3-6-为仓储添加远端（服务器端）地址" class="headerlink" title="5.3.6.为仓储添加远端（服务器端）地址"></a>5.3.6.为仓储添加远端（服务器端）地址</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 添加一个远端地址并起了一个别名叫origin</div><div class="line">$ git remote add origin https://github.com/Micua/Git.git</div><div class="line">// 查看现有的远端列表</div><div class="line">$ git remote -v</div></pre></td></tr></table></figure>
+<h4 id="5-3-7-将本地仓储的提交记录推送到远端的master分支"><a href="#5-3-7-将本地仓储的提交记录推送到远端的master分支" class="headerlink" title="5.3.7.将本地仓储的提交记录推送到远端的master分支"></a>5.3.7.将本地仓储的提交记录推送到远端的master分支</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push -u origin master</div></pre></td></tr></table></figure>
+<h4 id="5-3-8-拉取远端master分支的更新记录到本地"><a href="#5-3-8-拉取远端master分支的更新记录到本地" class="headerlink" title="5.3.8.拉取远端master分支的更新记录到本地"></a>5.3.8.拉取远端master分支的更新记录到本地</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git pull origin master</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/03/git-md/" data-id="civ1tezd50003u0twgztisal7" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-glup-first" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -197,7 +268,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/25/glup-first/" data-id="ciuouxfdo0000nctwmd90l08a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/25/glup-first/" data-id="civ1tezde0007u0twtf93gxaq" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -233,7 +304,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/25/glup-demo/" data-id="ciuoukoqf0000h0tw9r574clt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/25/glup-demo/" data-id="civ1tezda0005u0twdgpzi7ut" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -406,7 +477,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/25/bootstrap-second/" data-id="ciuotptmf0001eotwidqq3lfm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/25/bootstrap-second/" data-id="civ1tezd60004u0twj09mi4x0" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -592,7 +663,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/25/bootstrap-first/" data-id="ciuotptm00000eotw42jgm5z7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/25/bootstrap-first/" data-id="civ1tezbh0001u0twzivhxi7m" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -800,7 +871,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/25/node-first/" data-id="ciuot1zrj0004u0tw4q4wx19w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/25/node-first/" data-id="civ1tezet000au0twq7yyk82c" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -941,7 +1012,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/24/angular-first/" data-id="ciuot1zr30002u0twtoemwbdz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/24/angular-first/" data-id="civ1tezbb0000u0twnw5gnpd2" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -1146,7 +1217,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/24/git-second/" data-id="ciuot1zr30003u0twarnycfgr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/24/git-second/" data-id="civ1tezdh0009u0two9jbn24b" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -1363,52 +1434,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/24/git-guid/" data-id="ciuot1zqn0000u0tw4guhod6b" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/10/24/hello-world/" class="article-date">
-  <time datetime="2016-10-24T05:21:04.182Z" itemprop="datePublished">2016-10-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/24/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/24/hello-world/" data-id="ciuot1zr30001u0tw2t1pr4rl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/24/git-guid/" data-id="civ1tezdc0006u0twbntlkqm4" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -1419,6 +1445,10 @@
 
   
 
+
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
+  </nav>
 </section>
         
           <aside id="sidebar">
@@ -1435,7 +1465,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a></li></ul>
     </div>
   </div>
 
@@ -1443,9 +1473,17 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/11/03/bower-md/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/03/git-md/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2016/10/25/glup-first/">Gulp入门</a>
@@ -1457,14 +1495,6 @@
         
           <li>
             <a href="/2016/10/25/bootstrap-second/">bootstrap微金所项目实战</a>
-          </li>
-        
-          <li>
-            <a href="/2016/10/25/bootstrap-first/">Bootstrap入门</a>
-          </li>
-        
-          <li>
-            <a href="/2016/10/25/node-first/">流行框架第三天：Angular入门</a>
           </li>
         
       </ul>
@@ -1480,7 +1510,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 qixianchuan<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
