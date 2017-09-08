@@ -1,0 +1,1104 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="快速上手Why Angular2
+Angular1.x显然非常成功，那么，为什么要剧烈地转向Angular2？
+
+性能的限制
+AngularJS当初是提供给设计人员用来快速构建HTML表单的一个内部工具。随着时间的推移，各种特性 被加入进去以适应不同场景下的应用开发。然而由于最初的架构限制（比如绑定和模板机制），性能的 提升已经非常困难了。
+
+快速变化的WEB
+在语言方面，ECMAScript6的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Angular2 learning (汇智网 Angular2 入门课程)">
+<meta property="og:url" content="http://www.qishengpeng.com/blog/2017/04/25/angular2learning/index.html">
+<meta property="og:site_name" content="qixianchuan的博客">
+<meta property="og:description" content="快速上手Why Angular2
+Angular1.x显然非常成功，那么，为什么要剧烈地转向Angular2？
+
+性能的限制
+AngularJS当初是提供给设计人员用来快速构建HTML表单的一个内部工具。随着时间的推移，各种特性 被加入进去以适应不同场景下的应用开发。然而由于最初的架构限制（比如绑定和模板机制），性能的 提升已经非常困难了。
+
+快速变化的WEB
+在语言方面，ECMAScript6的">
+<meta property="og:updated_time" content="2017-04-25T09:55:29.871Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Angular2 learning (汇智网 Angular2 入门课程)">
+<meta name="twitter:description" content="快速上手Why Angular2
+Angular1.x显然非常成功，那么，为什么要剧烈地转向Angular2？
+
+性能的限制
+AngularJS当初是提供给设计人员用来快速构建HTML表单的一个内部工具。随着时间的推移，各种特性 被加入进去以适应不同场景下的应用开发。然而由于最初的架构限制（比如绑定和模板机制），性能的 提升已经非常困难了。
+
+快速变化的WEB
+在语言方面，ECMAScript6的">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6289938439265584000',
+      author: 'qixianchuan'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.qishengpeng.com/blog/2017/04/25/angular2learning/"/>
+
+
+
+
+
+  <title> Angular2 learning (汇智网 Angular2 入门课程) | qixianchuan的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/blog/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">qixianchuan的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">书熟鱼猪早扫考宝。业精于勤，荒于嬉；行成于思，毁于随。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/blog/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/blog/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://www.qishengpeng.com/blog/blog/2017/04/25/angular2learning/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="qixianchuan">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/blog/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="qixianchuan的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="qixianchuan的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Angular2 learning (汇智网 Angular2 入门课程)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T14:48:33+08:00">
+                2017-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/blog/2017/04/25/angular2learning/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/25/angular2learning/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="快速上手"><a href="#快速上手" class="headerlink" title="快速上手"></a>快速上手</h2><h3 id="Why-Angular2"><a href="#Why-Angular2" class="headerlink" title="Why Angular2"></a>Why Angular2</h3><blockquote>
+<p>Angular1.x显然非常成功，那么，为什么要剧烈地转向Angular2？</p>
+</blockquote>
+<h4 id="性能的限制"><a href="#性能的限制" class="headerlink" title="性能的限制"></a>性能的限制</h4><blockquote>
+<p>AngularJS当初是提供给设计人员用来快速构建HTML表单的一个内部工具。随着时间的推移，各种特性 被加入进去以适应不同场景下的应用开发。然而由于最初的架构限制（比如绑定和模板机制），性能的 提升已经非常困难了。</p>
+</blockquote>
+<h4 id="快速变化的WEB"><a href="#快速变化的WEB" class="headerlink" title="快速变化的WEB"></a>快速变化的WEB</h4><blockquote>
+<p>在语言方面，ECMAScript6的标准已经完成，这意味着浏览器将很快支持例如模块、类、lambda表达式、 generator等新的特性，而这些特性将显著地改变JavaScript的开发体验。</p>
+<p>在开发模式方面，Web组件也将很快实现。然而现有的框架，包括Angular1.x对WEB组件的支持都不够好。</p>
+</blockquote>
+<h4 id="移动化"><a href="#移动化" class="headerlink" title="移动化"></a>移动化</h4><blockquote>
+<p>想想5年前……现在的计算模式已经发生了显著地变化，到处都是手机和平板。Angular1.x没有针对移动 应用特别优化，并且缺少一些关键的特性，比如：缓存预编译的视图、触控支持等。</p>
+</blockquote>
+<h4 id="简单易用"><a href="#简单易用" class="headerlink" title="简单易用"></a>简单易用</h4><blockquote>
+<p>说实话，Angular1.x太复杂了，学习曲线太陡峭了，这让人望而生畏。Angular团队希望在Angular2中将复杂性 封装地更好一些，让暴露出来的概念和开发接口更简单。</p>
+</blockquote>
+<p>Rob Eisenberg / Angular 2.0 Team</p>
+<h3 id="ES6工具链"><a href="#ES6工具链" class="headerlink" title="ES6工具链"></a>ES6工具链</h3><blockquote>
+<p>要让Angular2应用跑起来不是件轻松的事，因为它用了太多还不被当前主流浏览器支持 的技术。所以，我们需要一个工具链：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">                        Your Web App</div><div class="line">                        Angular2</div><div class="line">        systemjs                            ES6浏览器</div><div class="line">traceur         es6-module-loader</div><div class="line">        ES5浏览器</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Angular2是面向未来的科技，要求浏览器支持ES6+，我们现在要尝试的话，需要加一些 垫片来抹平当前浏览器与ES6的差异：</p>
+<p>systemjs - 通用模块加载器，支持AMD、CommonJS、ES6等各种格式的JS模块加载<br>es6-module-loader - ES6模块加载器，systemjs会自动加载这个模块<br>traceur - ES6转码器，将ES6代码转换为当前浏览器支持的ES5代码。systemjs会自动加载 这个模块。</p>
+</blockquote>
+<h3 id="初识Angular2"><a href="#初识Angular2" class="headerlink" title="初识Angular2"></a>初识Angular2</h3><blockquote>
+<p>写一个Angular2的Hello World应用相当简单，分三步走：</p>
+</blockquote>
+<h4 id="1-引入Angular2预定义类型"><a href="#1-引入Angular2预定义类型" class="headerlink" title="1. 引入Angular2预定义类型"></a>1. 引入Angular2预定义类型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> &#123;Component,View,bootstrap&#125; <span class="keyword">from</span> <span class="string">"angular2/angular2"</span>;</div></pre></td></tr></table></figure>
+<h4 id="2-实现一个Angular2组件"><a href="#2-实现一个Angular2组件" class="headerlink" title="2. 实现一个Angular2组件"></a>2. 实现一个Angular2组件</h4><blockquote>
+<p>实现一个Angular2组件也很简单，定义一个类，然后给这个类添加注解：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">@Component(&#123;<span class="attr">selector</span>:<span class="string">"ez-app"</span>&#125;)</div><div class="line">@View(&#123;<span class="attr">template</span>:<span class="string">"&lt;h1&gt;Hello,Angular2&lt;/h1&gt;"</span>&#125;)</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">EzApp</span></span>&#123;&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>class也是ES6的关键字，用来定义一个类。@Component和@View都是给类EzApp附加的元信息， 被称为注解/Annotation。</p>
+<p>@Component最重要的作用是通过selector属性（值为CSS选择符），指定这个组件渲染到哪个DOM对象上。 @View最重要的作用是通过template属性，指定渲染的模板。</p>
+</blockquote>
+<h4 id="3-渲染组件到DOM"><a href="#3-渲染组件到DOM" class="headerlink" title="3. 渲染组件到DOM"></a>3. 渲染组件到DOM</h4><blockquote>
+<p>将组件渲染到DOM上，需要使用自举/bootstrap函数：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">bootstrap(EzApp);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这个函数的作用就是通知Angular2框架将EzApp组件渲染到DOM树上。</p>
+<p>简单吗？我知道你一定还有疑问，别着急，我们慢慢把缺失的知识点补上！</p>
+</blockquote>
+<h3 id="注解-Annotation"><a href="#注解-Annotation" class="headerlink" title="注解/Annotation"></a>注解/Annotation</h3><blockquote>
+<p>你一定好奇@Component和@View到底是怎么回事。看起来像其他语言（比如python） 的装饰器，是这样吗？</p>
+<p>ES6规范里没有装饰器。这其实利用了traceur的一个实验特性：注解。给一个类 加注解，等同于设置这个类的annotations属性：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//注解写法</span></div><div class="line">@Component(&#123;<span class="attr">selector</span>:<span class="string">"ez-app"</span>&#125;)</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">EzApp</span></span>&#123;...&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>等同于</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">EzApp</span></span>&#123;...&#125;</div><div class="line">EzApp.annotations = [<span class="keyword">new</span> Component(&#123;<span class="attr">selector</span>:<span class="string">"ez-app"</span>&#125;)];</div></pre></td></tr></table></figure>
+<blockquote>
+<p>很显然，注解可以看做编译器（traceur）层面的语法糖，但和python的装饰器不同， 注解在编译时仅仅被放在annotation里，编译器并不进行解释展开 - 这个解释的工作是 Angular2完成的：</p>
+<p>据称，注解的功能就是Angular2团队向traceur团队提出的，这不是traceur的默认选项， 因此你看到，我们配置systemjs在使用traceur模块时打开注解：</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">System.config(&#123;</div><div class="line">  map:&#123;traceur:"lib/traceur"&#125;,</div><div class="line">  traceurOptions: &#123;annotations: true&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;!doctype html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset="utf-8"&gt;</div><div class="line">    &lt;title&gt;hello,angular2&lt;/title&gt;</div><div class="line">    &lt;!--模块加载器--&gt;</div><div class="line">    &lt;script type="text/javascript" src="lib/system@0.16.11.js"&gt;&lt;/script&gt;</div><div class="line">    &lt;!--Angular2模块库--&gt;</div><div class="line">    &lt;script type="text/javascript" src="lib/angular2.dev.js"&gt;&lt;/script&gt;</div><div class="line">	&lt;script&gt;</div><div class="line">    	//设置模块加载规则</div><div class="line">    	System.baseURL = document.baseURI;</div><div class="line">		System.config(&#123;</div><div class="line">        	map:&#123;traceur:"lib/traceur"&#125;,</div><div class="line">			traceurOptions: &#123;annotations: true&#125;</div><div class="line">		&#125;);</div><div class="line">	&lt;/script&gt;	    </div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;!--组件渲染锚点--&gt;</div><div class="line">	&lt;my-app&gt;&lt;/my-app&gt;</div><div class="line">    </div><div class="line">    &lt;!--定义一个ES6脚本元素--&gt;</div><div class="line">    &lt;script type="module"&gt;</div><div class="line">    	//从模块库引入三个类型定义</div><div class="line">        import &#123;Component,View,bootstrap&#125; from "angular2/angular2";</div><div class="line">        </div><div class="line">        //组件定义</div><div class="line">        @Component(&#123;selector:"my-app"&#125;)</div><div class="line">        @View(&#123;template:"&lt;h1&gt;Hello,Annotation&lt;/h1&gt;"&#125;)</div><div class="line">        class EzApp&#123;&#125;       </div><div class="line">                </div><div class="line">        //渲染组件</div><div class="line">        bootstrap(EzApp);</div><div class="line">    &lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="selector-tag">h1</span>&#123;<span class="attribute">background</span>:black;<span class="attribute">color</span>:white;<span class="attribute">display</span>:inline-block&#125;</div></pre></td></tr></table></figure>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><blockquote>
+<p>如果你了解一点Angular1.x的bootstrap，可能隐约会感受到Angular2中bootstrap的一些 变化 - 我指的并非代码形式上的变化。</p>
+</blockquote>
+<h4 id="以组件为核心"><a href="#以组件为核心" class="headerlink" title="以组件为核心"></a>以组件为核心</h4><blockquote>
+<p>在Angular1.x中，bootstrap是围绕DOM元素展开的，无论你使用ng-app还是手动执行bootstrap() 函数，自举过程是建立在DOM之上的。</p>
+<p>而在Angular2中，bootstrap是围绕组件开始的，你定义一个组件，然后启动它。如果没有一个组件， 你甚至都没有办法使用Angular2！</p>
+</blockquote>
+<h4 id="支持多种渲染引擎"><a href="#支持多种渲染引擎" class="headerlink" title="支持多种渲染引擎"></a>支持多种渲染引擎</h4><blockquote>
+<p>以组件而非DOM为核心，意味着Angular2在内核隔离了对DOM的依赖 - DOM仅仅作为一种可选的渲染引擎存在：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">                        Angular2 Core</div><div class="line">                        Render API</div><div class="line">DOM Render      Server Render   Android Render      ios Render</div></pre></td></tr></table></figure>
+<blockquote>
+<p>上面的图中，DOM Render已经实现，Server Render正在测试，iOS Render和Android Render 是可预料的特性，虽然我们看不到时间表。</p>
+<p>这有点像React了。</p>
+</blockquote>
+<h2 id="组件开发-模板语法"><a href="#组件开发-模板语法" class="headerlink" title="组件开发 - 模板语法"></a>组件开发 - 模板语法</h2><h3 id="1-最简单的模板"><a href="#1-最简单的模板" class="headerlink" title="1. 最简单的模板"></a>1. 最简单的模板</h3><blockquote>
+<p>组件的View注解用来声明组件的外观，它最重要的属性就是template - 模板。 Angular2的模板是兼容HTML语法的，这意味着你可以使用任何标准的HTML标签编写 组件模板。</p>
+<p>所以，在最简单的情况下，一个Angular2组件的模板由标准的HTML元素构成，看起来就是 一段HTML码流。Angular2将原封不同地渲染这段模板：</p>
+<p>有两种方法为组件指定渲染模板：</p>
+</blockquote>
+<h4 id="1-内联模板"><a href="#1-内联模板" class="headerlink" title="1. 内联模板"></a>1. 内联模板</h4><blockquote>
+<p>可以使用组件的View注解中的template属性直接指定内联模板：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">@View(&#123;</div><div class="line">    <span class="attr">template</span> : <span class="string">`&lt;h1&gt;hello&lt;/h1&gt;</span></div><div class="line">                &lt;div&gt;...&lt;/div&gt;`</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>在ES6中，使用一对`符号就可以定义多行字符串，这使得编写内联的模板轻松多了。</p>
+</blockquote>
+<h4 id="2-外部模板"><a href="#2-外部模板" class="headerlink" title="2. 外部模板"></a>2. 外部模板</h4><blockquote>
+<p>也可以将模板写入一个单独的文件：</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">&lt;!--ezcomp-tpl.html--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>然后在定义组件时，使用templateUrl引用外部模板：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">@View(&#123;</div><div class="line">    <span class="attr">templateUrl</span> : <span class="string">"ezcomp-tpl.html"</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="2-directives-使用组件"><a href="#2-directives-使用组件" class="headerlink" title="2. directives - 使用组件"></a>2. directives - 使用组件</h3><blockquote>
+<p>在Angular2中，一个组件的模板内除了可以使用标准的HTML元素，也可以使用自定义的组件！</p>
+<p>这是相当重要的特性，意味着Angular2将无偏差地对待标准的HTML元素和你自己定义的组件。这样， 你可以建立自己的领域建模语言了，这使得渲染模板和视图模型的对齐更加容易，也使得模板的语义性 更强：</p>
+</blockquote>
+<h4 id="声明要在模板中使用的组件"><a href="#声明要在模板中使用的组件" class="headerlink" title="声明要在模板中使用的组件"></a>声明要在模板中使用的组件</h4><blockquote>
+<p>不过，在使用自定义组件之前，必需在组件的ViewAnnotation中通过directives属性声明这个组件：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">@View(&#123;</div><div class="line">    <span class="attr">directives</span> : [EzComp],</div><div class="line">    <span class="attr">template</span> : <span class="string">"&lt;ez-comp&gt;&lt;/ez-comp&gt;"</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>你应该注意到了，directives属性的值是一个数组，这意味着，你需要在这里声明所有你需要在模板 中使用的自定义组件。</p>
+<p>练习：<br>修改示例代码：</p>
+<ol>
+<li>增加一个EzLogo组件</li>
+<li>在EzCard组件的模板中使用这个组件</li>
+</ol>
+</blockquote>
+<h3 id="3-文本插值"><a href="#3-文本插值" class="headerlink" title="3.  - 文本插值"></a>3.  - 文本插值</h3><blockquote>
+<p>在模板中使用可以的方式绑定组件模型中的表达式，当表达式变化时， Angular2将自动更新对应的DOM对象：</p>
+<p>上图的示例中，模板声明了h1的内容将绑定到组件实例的title变量。Angular2 框架将实时检测title的变化，并在其变化时自动更新DOM树中h1的内容。</p>
+<p>练习</p>
+<p>修改模板，将“新闻来源”字段及内容移动到文章尾部。</p>
+</blockquote>
+<h3 id="4-property-绑定属性"><a href="#4-property-绑定属性" class="headerlink" title="4. [property] - 绑定属性"></a>4. [property] - 绑定属性</h3><blockquote>
+<p>在模板中，也可以使用一对中括号将HTML元素或组件的属性绑定到组件模型的某个表达式， 当表达式的值变化时，对应的DOM对象将自动得到更新：</p>
+<p>等价的，你也可以使用bind-前缀进行属性绑定：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">@View(&#123;<span class="attr">template</span>:<span class="string">`&lt;h1 bind-text-content="title"&gt;&lt;/h1&gt;`</span>&#125;)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>很容易理解，通过属性，应用相关的数据流入组件，并影响组件的外观与行为。</p>
+<p>需要注意的是，属性的值总是被当做调用者模型中的表达式进行绑定，当表达式变化时，被 调用的组件自动得到更新。如果希望将属性绑定到一个常量字符串，别忘了给字符串加引号，或者， 去掉中括号：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//错误，Angular2将找不到表达式 Hello,Angular2</span></div><div class="line">@View(&#123;<span class="attr">template</span>:<span class="string">`&lt;h1 [text-content]="Hello,Angular2"&gt;&lt;/h1&gt;`</span>&#125;)</div><div class="line"><span class="comment">//正确，Angular2识别出常量字符串表达式 'Hello,Angular2'</span></div><div class="line">@View(&#123;<span class="attr">template</span>:<span class="string">`&lt;h1 [text-content]="'Hello,Angular2'"&gt;&lt;/h1&gt;`</span>&#125;)</div><div class="line"><span class="comment">//正确，Angular2识别出常量字符串作为属性textContent的值</span></div><div class="line">@View(&#123;<span class="attr">template</span>:<span class="string">`&lt;h1 text-content="Hello,Angular2"&gt;&lt;/h1&gt;`</span>&#125;)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>练习</p>
+<p>修改示例代码，使EzApp组件的标题颜色每秒钟随机变化一次！</p>
+</blockquote>
+<h3 id="5-event-监听事件"><a href="#5-event-监听事件" class="headerlink" title="5. (event) - 监听事件"></a>5. (event) - 监听事件</h3><blockquote>
+<p>在模板中为元素添加事件监听很简单，使用一对小括号包裹事件名称，并绑定 到表达式即可：</p>
+<p>上面的代码实例为DOM对象h1的click事件添加监听函数onClick()。</p>
+<p>另一种等效的书写方法是在事件名称前加on-前缀：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">@View(&#123;<span class="attr">template</span> : <span class="string">`&lt;h1 on-click="onClick()"&gt;HELLO&lt;/h1&gt;`</span>&#125;)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>练习</p>
+<p>修改示例代码，点击EzApp组件的h1标题时，自动变换名称！</p>
+</blockquote>
+<h3 id="6-var-局部变量"><a href="#6-var-局部变量" class="headerlink" title="6. #var - 局部变量"></a>6. #var - 局部变量</h3><blockquote>
+<p>有时模板中的不同元素间可能需要互相调用，Angular2提供一种简单的语法将元素 映射为局部变量：添加一个以#或var-开始的属性，后续的部分表示变量名， 这个变量对应元素的实例。</p>
+<p>在下面的代码示例中，我们为元素h1定义了一个局部变量v_h1，这个变量指向 该元素对应的DOM对象，你可以在模板中的其他地方调用其方法和属性：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">@View(&#123;</div><div class="line">    <span class="attr">template</span> : <span class="string">`</span></div><div class="line">        &lt;h1 #v_h1&gt;hello&lt;/h1&gt;</div><div class="line">        &lt;button (click) = "#v_h1.textContent = 'HELLO'"&gt;test&lt;/button&gt;</div><div class="line">    `</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>如果在一个组件元素上定义局部变量，那么其对应的对象为组件的实例：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">@View(&#123;</div><div class="line">    <span class="attr">directives</span>:[EzCalc],</div><div class="line">    <span class="attr">template</span> : <span class="string">"&lt;ez-calc #c&gt;&lt;/ez-calc&gt;"</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>在上面的示例中，模板内的局部变量c指向EzCalc的实例。</p>
+<p>练习</p>
+<p>为示例代码的变色按钮添加事件监听，点击该按钮时，将EzApp组件的h1标题 变为黑色背景，白色字体！</p>
+</blockquote>
+<h2 id="组件开发-模板的逻辑控制"><a href="#组件开发-模板的逻辑控制" class="headerlink" title="组件开发 - 模板的逻辑控制"></a>组件开发 - 模板的逻辑控制</h2><h3 id="NgIf-条件逻辑"><a href="#NgIf-条件逻辑" class="headerlink" title="NgIf- 条件逻辑"></a>NgIf- 条件逻辑</h3><p>使用条件逻辑</p>
+<blockquote>
+<p>有时我们需要模板的一部分内容在满足一定条件时才显示，比如右边示例中的EzReader组件， 对于试用用户，它将在正文之上额外显示一个广告：</p>
+<p>这是指令NgIf发挥作用的场景，它评估属性ngIf的值是否为真，来决定是否渲染 template元素的内容：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">@View(&#123;</div><div class="line">    <span class="attr">template</span> : <span class="string">`&lt;!--根据变量trial的值决定是否显示广告图片--&gt;</span></div><div class="line">                &lt;template [ng-if]="trial==true"&gt;</div><div class="line">                    &lt;img src="ad.jpg"&gt;</div><div class="line">                &lt;/template&gt;</div><div class="line">                &lt;!--以下是正文--&gt;</div><div class="line">                &lt;pre&gt;...&lt;/pre&gt;</div><div class="line"> &#125;)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Angular2同时提供了两种语法糖，让NgIf写起来更简单，下面的两种书写方法和上面 的正式语法是等效的：</p>
+</blockquote>
+<h3 id="NgSwitch-分支逻辑"><a href="#NgSwitch-分支逻辑" class="headerlink" title="NgSwitch - 分支逻辑"></a>NgSwitch - 分支逻辑</h3><blockquote>
+<p>如果组件的模板需要根据某个表达式的不同取值展示不同的片段，可以使用NgSwitch系列指令 来动态切分模板。比如右边示例中的广告组件EzPromotion，需要根据来访者性别的不同推送 不同的广告：</p>
+<p>NgSwitch包含一组指令，用来构造包含多分支的模板：</p>
+</blockquote>
+<h4 id="NgSwitch"><a href="#NgSwitch" class="headerlink" title="NgSwitch"></a>NgSwitch</h4><blockquote>
+<p>NgSwitch指令可以应用在任何HTML元素上，它评估元素的ngSwitch属性值，并根据这个值 决定应用哪些template的内容（可以同时显示多个分支）：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;ANY [ng-<span class="keyword">switch</span>]=<span class="string">"expression"</span>&gt;...&lt;<span class="regexp">/ANY&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="NgSwitchWhen"><a href="#NgSwitchWhen" class="headerlink" title="NgSwitchWhen"></a>NgSwitchWhen</h4><blockquote>
+<p>NgSwitchWhen指令必须应用在NgSwitch指令的子template元素上，它通过属性ngSwitchWhen指定一个表达式， 如果该表达式与父节点的NgSwitch指令指定的表达式值一致，那么显示这个template的内容：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;ANY [ng-<span class="keyword">switch</span>]=<span class="string">"..."</span>&gt;</div><div class="line">    <span class="xml"><span class="comment">&lt;!--与变量比较--&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">template</span> [<span class="attr">ng-switch-when</span>]=<span class="string">"variable"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">template</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--与常量比较--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">template</span> <span class="attr">ng-switch-when</span>=<span class="string">"constant"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">template</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ANY</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="NgFor-循环逻辑"><a href="#NgFor-循环逻辑" class="headerlink" title="NgFor - 循环逻辑"></a>NgFor - 循环逻辑</h3><h2 id="组件开发-为模板应用样式"><a href="#组件开发-为模板应用样式" class="headerlink" title="组件开发 - 为模板应用样式"></a>组件开发 - 为模板应用样式</h2><h2 id="组件开发-属性与事件"><a href="#组件开发-属性与事件" class="headerlink" title="组件开发 - 属性与事件"></a>组件开发 - 属性与事件</h2><h2 id="组件开发-表单输入"><a href="#组件开发-表单输入" class="headerlink" title="组件开发 - 表单输入"></a>组件开发 - 表单输入</h2><h2 id="组件开发-调用服务"><a href="#组件开发-调用服务" class="headerlink" title="组件开发 - 调用服务"></a>组件开发 - 调用服务</h2><h2 id="组件路由-原理与应用"><a href="#组件路由-原理与应用" class="headerlink" title="组件路由 - 原理与应用"></a>组件路由 - 原理与应用</h2>
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/blog/uploads/wechat-qcode.jpg" alt="qixianchuan wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>欣赏此文？求鼓励，求支持，加我微信吧</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/blog/uploads/psb.jpg" alt="qixianchuan WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/blog/uploads/psb.jpg" alt="qixianchuan Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2017/04/24/sasslearning/" rel="next" title="Sass learning (汇智网 sass课程)">
+                <i class="fa fa-chevron-left"></i> Sass learning (汇智网 sass课程)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2017/04/28/mysqllearning/" rel="prev" title="mysql learning (汇智网 mysql课程)">
+                mysql learning (汇智网 mysql课程) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/04/25/angular2learning/"
+           data-title="Angular2 learning (汇智网 Angular2 入门课程)" data-url="http://www.qishengpeng.com/blog/blog/2017/04/25/angular2learning/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/blog/uploads/avatar.png"
+               alt="qixianchuan" />
+          <p class="site-author-name" itemprop="name">qixianchuan</p>
+          <p class="site-description motion-element" itemprop="description">为学。天下事有难易乎？为之，则难者亦易矣；不为，则易者亦难矣。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/blog/archives">
+              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/qipengju" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://douban.com/people/your-user-name" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/your-user-name" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              我的个人小站
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.qishengpeng.com/" title="个人站点" target="_blank">个人站点</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#快速上手"><span class="nav-number">1.</span> <span class="nav-text">快速上手</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Why-Angular2"><span class="nav-number">1.1.</span> <span class="nav-text">Why Angular2</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#性能的限制"><span class="nav-number">1.1.1.</span> <span class="nav-text">性能的限制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#快速变化的WEB"><span class="nav-number">1.1.2.</span> <span class="nav-text">快速变化的WEB</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#移动化"><span class="nav-number">1.1.3.</span> <span class="nav-text">移动化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简单易用"><span class="nav-number">1.1.4.</span> <span class="nav-text">简单易用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ES6工具链"><span class="nav-number">1.2.</span> <span class="nav-text">ES6工具链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初识Angular2"><span class="nav-number">1.3.</span> <span class="nav-text">初识Angular2</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-引入Angular2预定义类型"><span class="nav-number">1.3.1.</span> <span class="nav-text">1. 引入Angular2预定义类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-实现一个Angular2组件"><span class="nav-number">1.3.2.</span> <span class="nav-text">2. 实现一个Angular2组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-渲染组件到DOM"><span class="nav-number">1.3.3.</span> <span class="nav-text">3. 渲染组件到DOM</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注解-Annotation"><span class="nav-number">1.4.</span> <span class="nav-text">注解/Annotation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小结"><span class="nav-number">1.5.</span> <span class="nav-text">小结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#以组件为核心"><span class="nav-number">1.5.1.</span> <span class="nav-text">以组件为核心</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#支持多种渲染引擎"><span class="nav-number">1.5.2.</span> <span class="nav-text">支持多种渲染引擎</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件开发-模板语法"><span class="nav-number">2.</span> <span class="nav-text">组件开发 - 模板语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-最简单的模板"><span class="nav-number">2.1.</span> <span class="nav-text">1. 最简单的模板</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-内联模板"><span class="nav-number">2.1.1.</span> <span class="nav-text">1. 内联模板</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-外部模板"><span class="nav-number">2.1.2.</span> <span class="nav-text">2. 外部模板</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-directives-使用组件"><span class="nav-number">2.2.</span> <span class="nav-text">2. directives - 使用组件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#声明要在模板中使用的组件"><span class="nav-number">2.2.1.</span> <span class="nav-text">声明要在模板中使用的组件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-文本插值"><span class="nav-number">2.3.</span> <span class="nav-text">3.  - 文本插值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-property-绑定属性"><span class="nav-number">2.4.</span> <span class="nav-text">4. [property] - 绑定属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-event-监听事件"><span class="nav-number">2.5.</span> <span class="nav-text">5. (event) - 监听事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-var-局部变量"><span class="nav-number">2.6.</span> <span class="nav-text">6. #var - 局部变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件开发-模板的逻辑控制"><span class="nav-number">3.</span> <span class="nav-text">组件开发 - 模板的逻辑控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NgIf-条件逻辑"><span class="nav-number">3.1.</span> <span class="nav-text">NgIf- 条件逻辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NgSwitch-分支逻辑"><span class="nav-number">3.2.</span> <span class="nav-text">NgSwitch - 分支逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#NgSwitch"><span class="nav-number">3.2.1.</span> <span class="nav-text">NgSwitch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NgSwitchWhen"><span class="nav-number">3.2.2.</span> <span class="nav-text">NgSwitchWhen</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NgFor-循环逻辑"><span class="nav-number">3.3.</span> <span class="nav-text">NgFor - 循环逻辑</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件开发-为模板应用样式"><span class="nav-number">4.</span> <span class="nav-text">组件开发 - 为模板应用样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件开发-属性与事件"><span class="nav-number">5.</span> <span class="nav-text">组件开发 - 属性与事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件开发-表单输入"><span class="nav-number">6.</span> <span class="nav-text">组件开发 - 表单输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件开发-调用服务"><span class="nav-number">7.</span> <span class="nav-text">组件开发 - 调用服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件路由-原理与应用"><span class="nav-number">8.</span> <span class="nav-text">组件路由 - 原理与应用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">qixianchuan</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/blog/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qixianchuan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/blog/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/blog/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/blog/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/blog/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/blog/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>

@@ -1,0 +1,1078 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="初识MySQL1. 认识MySQL简介
+MySQL 是一个真正的多用户、多线程SQL 数据库服务器。SQL （结构化查询语言） 是世界上最流行的和标准化的数据库语言。
+MySQL 是以一个客户机/服务器结构的实现，它由一个服务器守护程序mysqld 和很多不同的客户程序和库组成。MySQL在windows上不区分大小写，Linux上表名区分大小写
+MySQL主要目标是快速、健壮和易用
+MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql learning (汇智网 mysql课程)">
+<meta property="og:url" content="http://www.qishengpeng.com/blog/2017/04/28/mysqllearning/index.html">
+<meta property="og:site_name" content="qixianchuan的博客">
+<meta property="og:description" content="初识MySQL1. 认识MySQL简介
+MySQL 是一个真正的多用户、多线程SQL 数据库服务器。SQL （结构化查询语言） 是世界上最流行的和标准化的数据库语言。
+MySQL 是以一个客户机/服务器结构的实现，它由一个服务器守护程序mysqld 和很多不同的客户程序和库组成。MySQL在windows上不区分大小写，Linux上表名区分大小写
+MySQL主要目标是快速、健壮和易用
+MySQL">
+<meta property="og:updated_time" content="2017-04-28T03:54:24.718Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql learning (汇智网 mysql课程)">
+<meta name="twitter:description" content="初识MySQL1. 认识MySQL简介
+MySQL 是一个真正的多用户、多线程SQL 数据库服务器。SQL （结构化查询语言） 是世界上最流行的和标准化的数据库语言。
+MySQL 是以一个客户机/服务器结构的实现，它由一个服务器守护程序mysqld 和很多不同的客户程序和库组成。MySQL在windows上不区分大小写，Linux上表名区分大小写
+MySQL主要目标是快速、健壮和易用
+MySQL">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6289938439265584000',
+      author: 'qixianchuan'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.qishengpeng.com/blog/2017/04/28/mysqllearning/"/>
+
+
+
+
+
+  <title> mysql learning (汇智网 mysql课程) | qixianchuan的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/blog/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">qixianchuan的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">书熟鱼猪早扫考宝。业精于勤，荒于嬉；行成于思，毁于随。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/blog/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/blog/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://www.qishengpeng.com/blog/blog/2017/04/28/mysqllearning/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="qixianchuan">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/blog/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="qixianchuan的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="qixianchuan的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                mysql learning (汇智网 mysql课程)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-28T11:55:08+08:00">
+                2017-04-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/blog/2017/04/28/mysqllearning/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/28/mysqllearning/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="初识MySQL"><a href="#初识MySQL" class="headerlink" title="初识MySQL"></a>初识MySQL</h2><h3 id="1-认识MySQL"><a href="#1-认识MySQL" class="headerlink" title="1. 认识MySQL"></a>1. 认识MySQL</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><blockquote>
+<p>MySQL 是一个真正的多用户、多线程SQL 数据库服务器。SQL （结构化查询语言） 是世界上最流行的和标准化的数据库语言。</p>
+<p>MySQL 是以一个客户机/服务器结构的实现，它由一个服务器守护程序mysqld 和很多不同的客户程序和库组成。MySQL在windows上不区分大小写，Linux上表名区分大小写</p>
+<p>MySQL主要目标是快速、健壮和易用</p>
+<p>MySQL 具有运行速度很快、容易使用、支持查询语言、多个用户可同时连接客户机和服务器、可以运行在各种版本的UNIX以及非UNIX的系统上等优点。</p>
+<p>编者认为 如果你在寻找一种免费的或者不昂贵的，性能优越，速度很好的数据库管理系统，那么MySQL将是首选！</p>
+</blockquote>
+<h4 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h4><blockquote>
+<p>我们先创建一个属于自己的数据库，如下：</p>
+<p>create database test;</p>
+<p>至于这句话表示什么意思，又有什么固定的语法，我们后面介绍。</p>
+</blockquote>
+<h4 id="创建数据库表"><a href="#创建数据库表" class="headerlink" title="创建数据库表"></a>创建数据库表</h4><blockquote>
+<p>创建了数据库，接下来我们创建一个表，我们的数据操作都是针对表来的，例如：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">create table test01_01(</div><div class="line">name nvarchar(40),</div><div class="line">age int(5));</div></pre></td></tr></table></figure>
+<blockquote>
+<p>先输入’use test01;‘选用test01数据库，然后创建一个名为m_table的数据表，字段分别为name(varchar(50))，age(int(11))，address(varchar(50))</p>
+</blockquote>
+<h4 id="添加数据"><a href="#添加数据" class="headerlink" title="添加数据"></a>添加数据</h4><blockquote>
+<p>既然已经了解了MySQL的基本信息，那么我们赶紧来上手练练吧</p>
+<p>我们先做一些简单的实例，体验一下MySQL，我们先添加一条数据到数据库表中， 至于添加数据的语法，我们后面会讲到，不要着急。先看例子，写代码锻炼一下。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">insert into m_table values(&apos;wangwu&apos;,&apos;21&apos;,&apos;北京&apos;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>请根据上面的代码添加一条名字为”zhangsan”,年龄为20，地址为”beijing”的数据到m_table表中</p>
+</blockquote>
+<h4 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h4><blockquote>
+<p>上一节我们添加了一条数据，那么接下来就要查看这条数据了</p>
+<p>这里我们只做最简单的查询数据，以后会深入讲解各种查询语句，今天我们讲的只是基础</p>
+<p>好了，让我们看下面的这个例子</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">select * from m_table;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>请根据上面的代码查询出m_table表中的数据</p>
+</blockquote>
+<h4 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h4><blockquote>
+<p>现在我们可以添加和查询数据了，那么接下来我们要修改数据了</p>
+<p>修改我们上次添加的那条数据，这里的修改只是修改数据的内容</p>
+<p>看下面的这个例子</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">update m_table set name= &apos;zhangsan&apos;,age=10 where name=&apos;wangwu&apos;;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>请根据上面的代码修改名字为”zhangsan”的年龄为30，地址修改为”shanghai”,并查看结果</p>
+</blockquote>
+<h4 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h4><blockquote>
+<p>现在为止，我们进行了表中数据的添加，查询，修改操作，那么接下来，我们不需要这条数据了，就可以删除这条数据了。</p>
+<p>删除数据也很简单，我们来对之前的数据进行删除吧</p>
+<p>观察下面的实例，动手写代码，自己体验一下吧</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">delete from m_table where name= &apos;zhangsan&apos;;</div></pre></td></tr></table></figure>
+<h3 id="2-创建数据库"><a href="#2-创建数据库" class="headerlink" title="2. 创建数据库"></a>2. 创建数据库</h3><h4 id="创建数据库-1"><a href="#创建数据库-1" class="headerlink" title="创建数据库"></a>创建数据库</h4><blockquote>
+<p>创建一个属于自己的数据库，看下面的语法</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">create database [if not exists] db_name;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>前面一部分是固定关键字，db_name是你要创建的数据库的名字，例如：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">create database test04;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这样我们就创建了属于自己的数据库，如果数据库已经存在，使用if not exists可以避免创建已经存在的数据库的错误，很简单吧。</p>
+</blockquote>
+<h4 id="显示数据库"><a href="#显示数据库" class="headerlink" title="显示数据库"></a>显示数据库</h4><blockquote>
+<p>假如你不知道服务器主机上有多少数据库存在，可以用show databases语法来显示服务器主机上的数据库，从而找到你想要的那个数据库。</p>
+</blockquote>
+<p>我们看下它的语法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">show databases [like wild];</div></pre></td></tr></table></figure>
+<p>显示全部数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">show databases;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>但是有时候你知道数据库名字部分名称，这个时候我们可以用like关键字来显示，例如：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">show databases like &apos;te%&apos;;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>上述实例我们只记得te开头的数据库，如果关键字在中间呢，我们使用’%st%’形式来查找； 如果关键字在最后，我们使用’%st01’来查找。</p>
+</blockquote>
+<h4 id="选用数据库"><a href="#选用数据库" class="headerlink" title="选用数据库"></a>选用数据库</h4><blockquote>
+<p>当前服务器有很多数据库，我们怎样才能使用我们需要的那个呢。看下面</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">use db_name;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>use是固定关键字,db_name是你要使用的那个数据库的名称，这样我们就把db_name这个数据库变成正在使用的数据库了。也就是说，当你使用上述命令选用数据库之后，之后的任何数据库操作，都是针对你选用的数据库的。例如：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">use test04;</div></pre></td></tr></table></figure>
+<h4 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h4><blockquote>
+<p>我们已经学会创建，查看和选用数据库，那么如果我们不需要这个数据库了，该怎么办呢，置之不理是不好的，数据库是会占据空间的。所以当我们完全不用的时候，最好删除掉。</p>
+</blockquote>
+<p>我们看下删除数据库的语法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">drop database [if exists] db_name;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>此命令会删除当前数据库和当前数据库中的所有数据表，所以务必确认该数据库是否完全不用！在MySQL 3.22或以后版本中，你可以使用关键词 if exists 阻止一个错误的发生， 如果数据库不存在，例如：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">drop database if exists test04;</div></pre></td></tr></table></figure>
+<p>如果数据库存在则删除，不存在也不会报错。</p>
+<h3 id="3-创建表"><a href="#3-创建表" class="headerlink" title="3. 创建表"></a>3. 创建表</h3><h4 id="create创建数据库表"><a href="#create创建数据库表" class="headerlink" title="create创建数据库表"></a>create创建数据库表</h4><blockquote>
+<p>创建数据库表太常用了，只要用到数据库，我们就会用到创建数据库表，我们用create 语句来创建，看下面语法:</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">create table tbl_name(create_definition,...) [type =table_type] </div><div class="line">create_definition:col_name type [not null | null][default default_value] [auto_increment][primary_key]</div></pre></td></tr></table></figure>
+<blockquote>
+<p>create table是固定的关键字，后面紧跟要创建的表的名称，括号里面是字段的内容，内容可选有：是否为空，是否有默认值，是否为主键，是否自增长等等，例如：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">create table test01_02(id varchar(50) not null auto_increment primary key,</div><div class="line">name nvarchar(40) null default &quot;002&quot;,</div><div class="line">age int(5)null default 444);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>先选用test01数据库，然后创建一个名为test01_01的数据表，字段分别name(varchar)，age(int)，address(varchar)</p>
+</blockquote>
+<h4 id="select创建数据库表"><a href="#select创建数据库表" class="headerlink" title="select创建数据库表"></a>select创建数据库表</h4><blockquote>
+<p>创建数据库表有多种方式，上面讲了一种，我们再看另外一种常用的，用select 语句来创建，看下面语法:</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">create table tb_new_name select * from tb_old_name;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>上述语句表示，从后者的表中复制一份，添加到新的数据库表中，前面是新的数据库表，之前是不存在的。例如：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">create table test01_03 select * from test01_01;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>请选用test01数据库，创建一个名为test01_02的数据表，从test01_01中复制</p>
+</blockquote>
+<h4 id="显示数据库表信息"><a href="#显示数据库表信息" class="headerlink" title="显示数据库表信息"></a>显示数据库表信息</h4><blockquote>
+<p>有时候我们需要查看某个数据库表的相关信息，比如结构，列名等等；那么我们就需要用到show/describe 语句来查看，看下面语法:</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">show tables [from db_name] [like wild] </div><div class="line">show columns from tbl_name [from db_name] [like wild] </div><div class="line">show index from tbl_name [from db_name] </div><div class="line">show table status [from db_name] [like  wild] </div><div class="line">&#123;describe| desc&#125; tbl_name &#123;col_name | wild&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>第一种语法表示：查看某个数据库下的所有数据库表，或者根据like模糊查看某个数据库表；例如</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">show tables from  test01;</div><div class="line">show tables from  test01 like &quot;%a%&quot;;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>第二种语法表示：查看某个数据库表中的列属性,like后面跟的是列的名称的某个关键字；例如</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">show columns from test01_01;</div><div class="line">show columns from test01_01 from test01 like &quot;%n%&quot;;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>第三种语法表示：查看某个数据库表中的索引；例如</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">show index from test01_01 from test01;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>第四种语法表示：查看数据库中全部表或者某个表的状态信息，信息提供的更多；例如</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">show table status from test01;</div><div class="line">show table status from test01 like &quot;%t%&quot;;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>第五种语法表示：查看数据库表的信息，是show的另外一种方式；例如</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">desc test01_01;</div><div class="line">describe test01_01 &quot;%n%&quot;;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>请选用test01数据库，查看数据库test01下的所有数据表，并查看test01_01数据表的列属性</p>
+</blockquote>
+<h4 id="alter修改表结构"><a href="#alter修改表结构" class="headerlink" title="alter修改表结构"></a>alter修改表结构</h4><blockquote>
+<p>有时你可能需要改变一下现有表的结构，那么alter table语句将是你的合适选择。</p>
+</blockquote>
+<p>增加列</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">alter table tbl_name add col_name type</div></pre></td></tr></table></figure>
+<p>例如增加一个weight列:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">alter table test01_01 add weight int;</div></pre></td></tr></table></figure>
+<p>修改列</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">alter table test01_01 modify weight varchar(50);</div></pre></td></tr></table></figure>
+<p>删除列</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">alter table test01_01 drop weight;</div></pre></td></tr></table></figure>
+<p>另外一种常用方式，例如:</p>
+<p>给列更名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">alter table test01_01 change weight wei int;</div></pre></td></tr></table></figure>
+<p>给表更名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">alter table test01_01 rename test01_04;</div></pre></td></tr></table></figure>
+<p>请选用test01数据库，为名为test01_01的数据表添加名为“sex”的列，类型varchar，查看结果，并且删除此列</p>
+<h3 id="4-增加数据"><a href="#4-增加数据" class="headerlink" title="4. 增加数据"></a>4. 增加数据</h3><h3 id="5-查询数据"><a href="#5-查询数据" class="headerlink" title="5. 查询数据"></a>5. 查询数据</h3><h3 id="6-修改数据"><a href="#6-修改数据" class="headerlink" title="6. 修改数据"></a>6. 修改数据</h3><h3 id="7-删除数据"><a href="#7-删除数据" class="headerlink" title="7. 删除数据"></a>7. 删除数据</h3><h2 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h2><h2 id="数据表操作"><a href="#数据表操作" class="headerlink" title="数据表操作"></a>数据表操作</h2><h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><h2 id="查询数据-1"><a href="#查询数据-1" class="headerlink" title="查询数据"></a>查询数据</h2><h2 id="修改-amp-删除数据"><a href="#修改-amp-删除数据" class="headerlink" title="修改&amp;删除数据"></a>修改&amp;删除数据</h2>
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/blog/uploads/wechat-qcode.jpg" alt="qixianchuan wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>欣赏此文？求鼓励，求支持，加我微信吧</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/blog/uploads/psb.jpg" alt="qixianchuan WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/blog/uploads/psb.jpg" alt="qixianchuan Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2017/04/25/angular2learning/" rel="next" title="Angular2 learning (汇智网 Angular2 入门课程)">
+                <i class="fa fa-chevron-left"></i> Angular2 learning (汇智网 Angular2 入门课程)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2017/09/01/20170901/" rel="prev" title="想把与程序工作相关的文章放在博客园中">
+                想把与程序工作相关的文章放在博客园中 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/04/28/mysqllearning/"
+           data-title="mysql learning (汇智网 mysql课程)" data-url="http://www.qishengpeng.com/blog/blog/2017/04/28/mysqllearning/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/blog/uploads/avatar.png"
+               alt="qixianchuan" />
+          <p class="site-author-name" itemprop="name">qixianchuan</p>
+          <p class="site-description motion-element" itemprop="description">为学。天下事有难易乎？为之，则难者亦易矣；不为，则易者亦难矣。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/blog/archives">
+              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/qipengju" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://douban.com/people/your-user-name" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/your-user-name" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              我的个人小站
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.qishengpeng.com/" title="个人站点" target="_blank">个人站点</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初识MySQL"><span class="nav-number">1.</span> <span class="nav-text">初识MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-认识MySQL"><span class="nav-number">1.1.</span> <span class="nav-text">1. 认识MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介"><span class="nav-number">1.1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建数据库"><span class="nav-number">1.1.2.</span> <span class="nav-text">创建数据库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建数据库表"><span class="nav-number">1.1.3.</span> <span class="nav-text">创建数据库表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加数据"><span class="nav-number">1.1.4.</span> <span class="nav-text">添加数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询数据"><span class="nav-number">1.1.5.</span> <span class="nav-text">查询数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改数据"><span class="nav-number">1.1.6.</span> <span class="nav-text">修改数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除数据"><span class="nav-number">1.1.7.</span> <span class="nav-text">删除数据</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-创建数据库"><span class="nav-number">1.2.</span> <span class="nav-text">2. 创建数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建数据库-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">创建数据库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#显示数据库"><span class="nav-number">1.2.2.</span> <span class="nav-text">显示数据库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选用数据库"><span class="nav-number">1.2.3.</span> <span class="nav-text">选用数据库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除数据库"><span class="nav-number">1.2.4.</span> <span class="nav-text">删除数据库</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-创建表"><span class="nav-number">1.3.</span> <span class="nav-text">3. 创建表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#create创建数据库表"><span class="nav-number">1.3.1.</span> <span class="nav-text">create创建数据库表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#select创建数据库表"><span class="nav-number">1.3.2.</span> <span class="nav-text">select创建数据库表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#显示数据库表信息"><span class="nav-number">1.3.3.</span> <span class="nav-text">显示数据库表信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#alter修改表结构"><span class="nav-number">1.3.4.</span> <span class="nav-text">alter修改表结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-增加数据"><span class="nav-number">1.4.</span> <span class="nav-text">4. 增加数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-查询数据"><span class="nav-number">1.5.</span> <span class="nav-text">5. 查询数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-修改数据"><span class="nav-number">1.6.</span> <span class="nav-text">6. 修改数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-删除数据"><span class="nav-number">1.7.</span> <span class="nav-text">7. 删除数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库操作"><span class="nav-number">2.</span> <span class="nav-text">数据库操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据表操作"><span class="nav-number">3.</span> <span class="nav-text">数据表操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入数据"><span class="nav-number">4.</span> <span class="nav-text">插入数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询数据-1"><span class="nav-number">5.</span> <span class="nav-text">查询数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改-amp-删除数据"><span class="nav-number">6.</span> <span class="nav-text">修改&删除数据</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">qixianchuan</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/blog/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qixianchuan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/blog/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/blog/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/blog/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/blog/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/blog/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>

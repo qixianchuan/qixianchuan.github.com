@@ -1796,7 +1796,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #59d5ad;
+  background: #ffafff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2940,4 +2940,16 @@ body {
   .post-body {
     text-align: justify;
   }
+}
+@media (min-width: 992px) {
+  .posts-expand .post-body {
+    text-align: justify;
+    word-break: break-all; /*支持IE，chrome，FF不支持*/
+    word-wrap: break-word;
+/*支持IE，chrome，FF*/
+  }
+}
+.site-subtitle {
+  margin: 0;
+  padding: 1rem;
 }

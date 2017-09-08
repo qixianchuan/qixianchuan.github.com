@@ -1,0 +1,1165 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Underscore快速入门什么是Underscore？
+Underscore是一个JavaScript 库，提供了一整套函数式编程的实用功能，但是没有扩展任何JavaScript内置的对象。它弥补了部分jQuery没有实现的功能，同时又是Backbone.js 比不可少的部分。PS: Backbone 和本文无关，我们可能会单独开一门课程来讲解。Underscore 提供了100多个函数，包括常">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Underscore learning (汇智网 underscore课程)">
+<meta property="og:url" content="http://www.qishengpeng.com/blog/2017/04/24/Underscorelearning/index.html">
+<meta property="og:site_name" content="qixianchuan的博客">
+<meta property="og:description" content="Underscore快速入门什么是Underscore？
+Underscore是一个JavaScript 库，提供了一整套函数式编程的实用功能，但是没有扩展任何JavaScript内置的对象。它弥补了部分jQuery没有实现的功能，同时又是Backbone.js 比不可少的部分。PS: Backbone 和本文无关，我们可能会单独开一门课程来讲解。Underscore 提供了100多个函数，包括常">
+<meta property="og:updated_time" content="2017-04-25T06:27:25.996Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Underscore learning (汇智网 underscore课程)">
+<meta name="twitter:description" content="Underscore快速入门什么是Underscore？
+Underscore是一个JavaScript 库，提供了一整套函数式编程的实用功能，但是没有扩展任何JavaScript内置的对象。它弥补了部分jQuery没有实现的功能，同时又是Backbone.js 比不可少的部分。PS: Backbone 和本文无关，我们可能会单独开一门课程来讲解。Underscore 提供了100多个函数，包括常">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6289938439265584000',
+      author: 'qixianchuan'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.qishengpeng.com/blog/2017/04/24/Underscorelearning/"/>
+
+
+
+
+
+  <title> Underscore learning (汇智网 underscore课程) | qixianchuan的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/blog/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">qixianchuan的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">书熟鱼猪早扫考宝。业精于勤，荒于嬉；行成于思，毁于随。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/blog/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/blog/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://www.qishengpeng.com/blog/blog/2017/04/24/Underscorelearning/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="qixianchuan">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/blog/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="qixianchuan的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="qixianchuan的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Underscore learning (汇智网 underscore课程)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-24T15:42:14+08:00">
+                2017-04-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/blog/2017/04/24/Underscorelearning/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/24/Underscorelearning/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Underscore快速入门"><a href="#Underscore快速入门" class="headerlink" title="Underscore快速入门"></a>Underscore快速入门</h2><h3 id="什么是Underscore？"><a href="#什么是Underscore？" class="headerlink" title="什么是Underscore？"></a>什么是Underscore？</h3><blockquote>
+<p>Underscore是一个JavaScript 库，提供了一整套函数式编程的实用功能，但是没有扩展任何JavaScript内置的对象。它弥补了部分jQuery没有实现的功能，同时又是Backbone.js 比不可少的部分。<br>PS: Backbone 和本文无关，我们可能会单独开一门课程来讲解。<br>Underscore 提供了100多个函数，包括常用的each、filter、sortBy等等，还有更加专业的：函数绑定、索引、模版等。<br>当然JavaScript原生的函数也可以实现，但是比较麻烦，我们在学习Underscore的过程中我们会看它是如何实现的。 这样可以让我们更好的理解和学习 Underscore</p>
+</blockquote>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><blockquote>
+<p>Underscore.js是一个Javascript功能类库，不依赖于环境，可以加载到HTML中在浏览器运行，也可以直接在nodejs的环境中使用。</p>
+<p>前端：把 underscore.js 直接引入到 html 页面中。</p>
+<p>示例：</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"underscore.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>后端：<br>环境：nodejs5.0 npm3.6.0<br>后端安装十分的方便，在命令行中输入：npm install underscore<br>使用：var _ = require(‘underscore’);</p>
+</blockquote>
+<h3 id="课程简述"><a href="#课程简述" class="headerlink" title="课程简述"></a>课程简述</h3><blockquote>
+<p>underscore有近100的函数，本课程只介绍一些，比较常见的，实用的函数。<br>主要的内容有：<br>集合部分:数组或对象<br>数组部分<br>函数部分<br>对象部分<br>实用功能<br>链式语法</p>
+</blockquote>
+<h2 id="集合部分（数组或对象）"><a href="#集合部分（数组或对象）" class="headerlink" title="集合部分（数组或对象）"></a>集合部分（数组或对象）</h2><h3 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h3><h4 id="each-list-iteratee-context"><a href="#each-list-iteratee-context" class="headerlink" title="_.each(list, iteratee, [context])"></a>_.each(list, iteratee, [context])</h4><blockquote>
+<p>遍历list中的所有元素，按顺序用遍历输出每个元素。如果传递了context参数，则把iteratee绑定到context对象上。</p>
+<p>每次调用iteratee都会传递三个参数：(element, index, list)。如果list是个JavaScript对象，iteratee的参数是 (value, key, list))。返回list以方便链式调用。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">_.each([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], alert);</div><div class="line">	 </div><div class="line">=&gt; alerts each number <span class="keyword">in</span> turn...</div><div class="line">	 </div><div class="line">_.each(&#123;<span class="attr">one</span>: <span class="number">1</span>, <span class="attr">two</span>: <span class="number">2</span>, <span class="attr">three</span>: <span class="number">3</span>&#125;, alert);</div><div class="line">	 </div><div class="line">=&gt; alerts each number value <span class="keyword">in</span> turn...</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：集合函数能在数组，对象，和类数组对象，比如arguments, NodeList和类似的数据类型上正常工作。</p>
+<p>但是它通过鸭子类型工作，所以要避免传递一个不固定length属性的对象。每个循环不能被破坏打破， 使用_.find(后面的章节会讲解到)代替，这也是很好的注意。</p>
+</blockquote>
+<h4 id="map-list-iteratee-context"><a href="#map-list-iteratee-context" class="headerlink" title="_.map(list, iteratee, [context])"></a>_.map(list, iteratee, [context])</h4><blockquote>
+<p>通过转换函数(iteratee迭代器)映射列表中的每个值产生价值的新数组。</p>
+<p>iteratee传递三个参数：value，然后是迭代 index，最后一个是引用指向整个list。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">_.map([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123; <span class="keyword">return</span> num * <span class="number">3</span>; &#125;);</div><div class="line">	 </div><div class="line">=&gt; [<span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span>]</div><div class="line">	 </div><div class="line">_.map(&#123;<span class="attr">one</span>: <span class="number">1</span>, <span class="attr">two</span>: <span class="number">2</span>, <span class="attr">three</span>: <span class="number">3</span>&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">num, key</span>)</span>&#123; <span class="keyword">return</span> num * <span class="number">3</span>; &#125;);</div><div class="line">	 </div><div class="line">=&gt; [<span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span>]</div><div class="line">	 </div><div class="line">_.map([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>]], _.first);</div><div class="line">	 </div><div class="line">=&gt; [<span class="number">1</span>, <span class="number">3</span>]</div></pre></td></tr></table></figure>
+<h3 id="元素合并"><a href="#元素合并" class="headerlink" title="元素合并"></a>元素合并</h3><h4 id="reduce-reduce-list-iteratee-memo-context"><a href="#reduce-reduce-list-iteratee-memo-context" class="headerlink" title="reduce_.reduce(list, iteratee, [memo], [context])"></a>reduce_.reduce(list, iteratee, [memo], [context])</h4><blockquote>
+<p>reduce方法把list中元素归结为一个单独的数值。</p>
+<p>Memo是reduce函数的初始值，reduce的每一步都需要由iteratee返回。这个迭代传递4个参数：memo,value 和 迭代的index（或者 key）和最后一个引用的整个 list。</p>
+<p>如果没有memo传递给reduce的初始调用，iteratee不会被列表中的第一个元素调用。第一个元素将取代 传递给列表中下一个元素调用iteratee的memo参数。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> sum = _.reduce([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="function"><span class="keyword">function</span>(<span class="params">memo, num</span>)</span>&#123; <span class="keyword">return</span> memo + num; &#125;, <span class="number">0</span>);</div><div class="line">=&gt; <span class="number">6</span></div></pre></td></tr></table></figure>
+<h3 id="查找和过滤"><a href="#查找和过滤" class="headerlink" title="查找和过滤"></a>查找和过滤</h3><h4 id="find-find-list-predicate-context"><a href="#find-find-list-predicate-context" class="headerlink" title="find_.find(list, predicate, [context])"></a>find_.find(list, predicate, [context])</h4><blockquote>
+<p>在list中逐项查找，返回第一个通过predicate迭代函数真值检测的元素值，如果没有值传递给测试迭代器将返回undefined。</p>
+<p>如果找到匹配的元素，函数将立即返回，不会遍历整个list。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> even = _.find([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123; <span class="keyword">return</span> num % <span class="number">2</span> == <span class="number">0</span>; &#125;);</div><div class="line">=&gt; <span class="number">2</span></div></pre></td></tr></table></figure>
+<h4 id="filter-list-predicate-context"><a href="#filter-list-predicate-context" class="headerlink" title="_.filter(list, predicate, [context])"></a>_.filter(list, predicate, [context])</h4><blockquote>
+<p>遍历list中的每个值，返回包含所有通过predicate真值检测的元素值。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> evens = _.filter([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123; <span class="keyword">return</span> num % <span class="number">2</span> == <span class="number">0</span>; &#125;);</div><div class="line">=&gt; [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>]</div></pre></td></tr></table></figure>
+<h3 id="过滤"><a href="#过滤" class="headerlink" title="过滤"></a>过滤</h3><h4 id="where-list-properties"><a href="#where-list-properties" class="headerlink" title="_.where(list, properties)"></a>_.where(list, properties)</h4><blockquote>
+<p>遍历list中的每一个值，返回一个数组，这个数组包含properties所列出的属性的所有的 键 &gt; 值对。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> list = [</div><div class="line">    &#123;<span class="attr">title</span>:<span class="string">"AAA"</span>,<span class="attr">year</span>: <span class="number">1982</span>&#125;,</div><div class="line">    &#123;<span class="attr">title</span>:<span class="string">"BBB"</span>,<span class="attr">year</span>: <span class="number">1900</span>&#125;,</div><div class="line">    &#123;<span class="attr">title</span>:<span class="string">"CCC"</span>,<span class="attr">year</span>: <span class="number">1982</span>&#125;</div><div class="line">];</div><div class="line"><span class="built_in">console</span>.log(</div><div class="line">    _.where(list,&#123;<span class="attr">year</span>: <span class="number">1982</span>&#125;)</div><div class="line">);</div><div class="line">=&gt; [ &#123; <span class="attr">title</span>: <span class="string">'AAA'</span>, <span class="attr">year</span>: <span class="number">1982</span> &#125;, &#123; <span class="attr">title</span>: <span class="string">'CCC'</span>, <span class="attr">year</span>: <span class="number">1982</span> &#125; ]</div></pre></td></tr></table></figure>
+<h3 id="判断和提取"><a href="#判断和提取" class="headerlink" title="判断和提取"></a>判断和提取</h3><h4 id="contains-list-value-fromIndex"><a href="#contains-list-value-fromIndex" class="headerlink" title="_.contains(list, value, [fromIndex])"></a>_.contains(list, value, [fromIndex])</h4><blockquote>
+<p>判断元素是否在list中，如果list包含指定的value则返回true（愚人码头注：使用===检测）。如果list 是数组，内部使用indexOf判断。使用fromIndex来给定开始检索的索引位置。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> b =  _.contains([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">2</span>);</div><div class="line"><span class="built_in">console</span>.log(b);</div><div class="line">=&gt; <span class="literal">true</span></div></pre></td></tr></table></figure>
+<h4 id="pluck-list-propertyName"><a href="#pluck-list-propertyName" class="headerlink" title="_.pluck(list, propertyName)"></a>_.pluck(list, propertyName)</h4><blockquote>
+<p>提取一个集合里指定的属性值，pluck也许是map最常使用的用例模型的简化版本，即萃取数组对象中某属性值，返回一个数组。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> stooges = [&#123;<span class="attr">name</span>: <span class="string">'moe'</span>, <span class="attr">age</span>: <span class="number">40</span>&#125;, &#123;<span class="attr">name</span>: <span class="string">'larry'</span>, <span class="attr">age</span>: <span class="number">50</span>&#125;, &#123;<span class="attr">name</span>: <span class="string">'curly'</span>, <span class="attr">age</span>: <span class="number">60</span>&#125;];</div><div class="line"><span class="built_in">console</span>.log(_.pluck(stooges, <span class="string">'name'</span>));</div><div class="line">=&gt; [<span class="string">"moe"</span>, <span class="string">"larry"</span>, <span class="string">"curly"</span>]</div></pre></td></tr></table></figure>
+<h3 id="判断最大最小值"><a href="#判断最大最小值" class="headerlink" title="判断最大最小值"></a>判断最大最小值</h3><h4 id="max-list-iteratee-context"><a href="#max-list-iteratee-context" class="headerlink" title="_.max(list, [iteratee], [context])"></a>_.max(list, [iteratee], [context])</h4><blockquote>
+<p>返回list中的最大值。如果传递iteratee参数，iteratee将作为list中每个值的排序依据。如果list为空，将返回-Infinity，所以你可能需要事先用isEmpty检查 list 。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> stooges = [&#123;<span class="attr">name</span>: <span class="string">'moe'</span>, <span class="attr">age</span>: <span class="number">40</span>&#125;, &#123;<span class="attr">name</span>: <span class="string">'larry'</span>, <span class="attr">age</span>: <span class="number">95</span>&#125;, &#123;<span class="attr">name</span>: <span class="string">'curly'</span>, <span class="attr">age</span>: <span class="number">60</span>&#125;];</div><div class="line"><span class="built_in">console</span>.log(_.max(stooges, <span class="function"><span class="keyword">function</span>(<span class="params">stooge</span>)</span>&#123; <span class="keyword">return</span> stooge.age; &#125;));</div><div class="line">=&gt; &#123;<span class="attr">name</span>: <span class="string">'curly'</span>, <span class="attr">age</span>: <span class="number">60</span>&#125;;</div></pre></td></tr></table></figure>
+<h4 id="min-list-iteratee-context"><a href="#min-list-iteratee-context" class="headerlink" title="_.min(list, [iteratee], [context])"></a>_.min(list, [iteratee], [context])</h4><blockquote>
+<p>返回list中的最小值。如果传递iteratee参数，iteratee将作为list中每个值的排序依据。如果list为空，将返回-Infinity，所以你可能需要事先用isEmpty检查 list 。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> numbers = [<span class="number">10</span>, <span class="number">5</span>, <span class="number">100</span>, <span class="number">2</span>, <span class="number">1000</span>,<span class="number">-12</span>];</div><div class="line"><span class="built_in">console</span>.log(_.min(numbers));</div><div class="line">=&gt; <span class="number">2</span></div></pre></td></tr></table></figure>
+<h3 id="sortBy-排序"><a href="#sortBy-排序" class="headerlink" title="sortBy 排序"></a>sortBy 排序</h3><h4 id="sortBy-list-iteratee-context"><a href="#sortBy-list-iteratee-context" class="headerlink" title="_.sortBy(list, iteratee, [context])"></a>_.sortBy(list, iteratee, [context])</h4><blockquote>
+<p>返回一个排序后的list拷贝副本。如果传递iteratee参数，iteratee将作为list中每个值的排序依据。迭代器也可以是字符串的属性的名称进行排序的(比如 length)。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">_.sortBy([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123; <span class="keyword">return</span> <span class="built_in">Math</span>.sin(num); &#125;);</div><div class="line">=&gt; [<span class="number">5</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>]</div><div class="line">	 </div><div class="line"><span class="keyword">var</span> stooges = [&#123;<span class="attr">name</span>: <span class="string">'moe'</span>, <span class="attr">age</span>: <span class="number">40</span>&#125;, &#123;<span class="attr">name</span>: <span class="string">'larry'</span>, <span class="attr">age</span>: <span class="number">50</span>&#125;, &#123;<span class="attr">name</span>: <span class="string">'curly'</span>, <span class="attr">age</span>: <span class="number">60</span>&#125;];</div><div class="line"><span class="built_in">console</span>.log(_.sortBy(stooges, <span class="string">'age'</span>));</div><div class="line">=&gt; [&#123;<span class="attr">name</span>: <span class="string">'curly'</span>, <span class="attr">age</span>: <span class="number">60</span>&#125;, &#123;<span class="attr">name</span>: <span class="string">'larry'</span>, <span class="attr">age</span>: <span class="number">50</span>&#125;, &#123;<span class="attr">name</span>: <span class="string">'moe'</span>, <span class="attr">age</span>: <span class="number">40</span>&#125;];</div></pre></td></tr></table></figure>
+<h3 id="转换和获取个数"><a href="#转换和获取个数" class="headerlink" title="转换和获取个数"></a>转换和获取个数</h3><h4 id="toArray-list"><a href="#toArray-list" class="headerlink" title="_.toArray(list)"></a>_.toArray(list)</h4><blockquote>
+<p>把list(任何可以迭代的对象)转换成一个数组，在转换 arguments 对象时非常有用。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">console</span>.log(_.toArray(&#123;<span class="string">"one"</span>: <span class="number">1</span>, <span class="string">"two"</span>: <span class="number">2</span>, <span class="string">"three"</span>: <span class="number">3</span>, <span class="string">"fore"</span>: <span class="number">4</span>, <span class="string">"five"</span>: <span class="number">5</span>&#125;)); </div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="keyword">return</span> _.toArray(<span class="built_in">arguments</span>).slice(<span class="number">1</span>); &#125;)(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>);</div><div class="line">=&gt; [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</div></pre></td></tr></table></figure>
+<h4 id="size-list"><a href="#size-list" class="headerlink" title="_.size(list)"></a>_.size(list)</h4><blockquote>
+<p>返回list的长度。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">console</span>.log(_.size(&#123;<span class="string">"one"</span>: <span class="number">1</span>, <span class="string">"two"</span>: <span class="number">2</span>, <span class="string">"three"</span>: <span class="number">3</span>, <span class="string">"fore"</span>: <span class="number">4</span>, <span class="string">"five"</span>: <span class="number">5</span>&#125;));</div><div class="line">=&gt; <span class="number">3</span></div></pre></td></tr></table></figure>
+<h2 id="数组部分"><a href="#数组部分" class="headerlink" title="数组部分"></a>数组部分</h2><h3 id="元素位置操作"><a href="#元素位置操作" class="headerlink" title="元素位置操作"></a>元素位置操作</h3><h4 id="first-array-n"><a href="#first-array-n" class="headerlink" title="_.first(array, [n])"></a>_.first(array, [n])</h4><blockquote>
+<p>返回array（数组）的第一个元素。传递 n参数将返回数组中从第一个元素开始的n个元素。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">console</span>.log(_.first([<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>],<span class="number">3</span>));</div><div class="line">=&gt; <span class="number">5</span></div></pre></td></tr></table></figure>
+<h4 id="initial-array-n"><a href="#initial-array-n" class="headerlink" title="_.initial(array, [n])"></a>_.initial(array, [n])</h4><blockquote>
+<p>返回数组中除了最后一个元素外的其他全部元素。 在arguments对象上特别有用。传递 n参数将从结果中排除从最后一个开始的n个元素</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">console</span>.log(_.initial([<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>],<span class="number">2</span>));</div><div class="line"> =&gt; [<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>]</div></pre></td></tr></table></figure>
+<h4 id="last-array-n"><a href="#last-array-n" class="headerlink" title="_.last(array, [n])"></a>_.last(array, [n])</h4><blockquote>
+<p>返回array（数组）的最后一个元素。传递 n参数将返回数组中从最后一个元素开始的n个元素。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"> <span class="built_in">console</span>.log(_.last([<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>],<span class="number">2</span>));</div><div class="line">=&gt; <span class="number">1</span></div></pre></td></tr></table></figure>
+<h4 id="rest-array-index"><a href="#rest-array-index" class="headerlink" title="_.rest(array, [index])"></a>_.rest(array, [index])</h4><blockquote>
+<p>返回数组中除了第一个元素外的其他全部元素。传递 index 参数将返回从index开始的剩余所有元素 。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">console</span>.log(_.rest([<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>],<span class="number">2</span>));</div><div class="line">=&gt; [<span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]</div></pre></td></tr></table></figure>
+<h3 id="获取索引位置"><a href="#获取索引位置" class="headerlink" title="获取索引位置"></a>获取索引位置</h3><h4 id="indexOf-array-value-isSorted"><a href="#indexOf-array-value-isSorted" class="headerlink" title="_.indexOf(array, value, [isSorted])"></a>_.indexOf(array, value, [isSorted])</h4><blockquote>
+<p>返回value在该 array 中的索引值，如果value不存在 array中就返回-1。使用原生的indexOf 函数，除非它失效。</p>
+<p>如果您正在使用一个大数组，你知道数组已经排序，传递true给isSorted将更快的用二进制搜索..,或者，传递一个数字作为第三个参数，为了在给定的索引的数组中寻找第一个匹配值。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">console</span>.log(_.indexOf([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">2</span>));</div><div class="line">    =&gt; <span class="number">1</span></div></pre></td></tr></table></figure>
+<h4 id="lastIndexOf-array-value-fromIndex"><a href="#lastIndexOf-array-value-fromIndex" class="headerlink" title="_.lastIndexOf(array, value, [fromIndex])"></a>_.lastIndexOf(array, value, [fromIndex])</h4><blockquote>
+<p>返回value在该 array 中的从最后开始的索引值，如果value不存在 array中就返回-1。</p>
+<p>如果支持原生的lastIndexOf，将使用原生的lastIndexOf函数。传递fromIndex将从你给定的索性值开始搜索。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">console</span>.log(_.lastIndexOf([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">2</span>));</div><div class="line">    =&gt; <span class="number">4</span></div></pre></td></tr></table></figure>
+<h4 id="sortedIndex-list-value-iteratee-context"><a href="#sortedIndex-list-value-iteratee-context" class="headerlink" title="_.sortedIndex(list, value, [iteratee], [context])"></a>_.sortedIndex(list, value, [iteratee], [context])</h4><blockquote>
+<p>使用二分查找确定value在list中的位置序号，value按此序号插入能保持list原有的排序。</p>
+<p>如果提供iterator函数，iterator将作为list排序的依据，包括你传递的value 。iterator也可以是字符串的属性名用来排序(比如length)。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"> <span class="built_in">console</span>.log(_.sortedIndex([<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>], <span class="number">31</span>));</div><div class="line">=&gt; <span class="number">3</span></div><div class="line">		         </div><div class="line"><span class="keyword">var</span> stooges = [&#123;<span class="attr">name</span>: <span class="string">'moe'</span>, <span class="attr">age</span>: <span class="number">40</span>&#125;, &#123;<span class="attr">name</span>: <span class="string">'curly'</span>, <span class="attr">age</span>: <span class="number">60</span>&#125;];</div><div class="line"><span class="built_in">console</span>.log(_.sortedIndex(stooges, &#123;<span class="attr">name</span>: <span class="string">'larry'</span>, <span class="attr">age</span>: <span class="number">50</span>&#125;, <span class="string">'age'</span>));</div><div class="line">=&gt; <span class="number">1</span></div></pre></td></tr></table></figure>
+<h3 id="去除空值和嵌套"><a href="#去除空值和嵌套" class="headerlink" title="去除空值和嵌套"></a>去除空值和嵌套</h3><h4 id="compact-array"><a href="#compact-array" class="headerlink" title="_.compact(array)"></a>_.compact(array)</h4><blockquote>
+<p>返回一个除去所有false值的 array副本。 在javascript中, false, null, 0, “”, undefined 和 NaN 都是false值.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">console</span>.log(_.compact([<span class="number">0</span>, <span class="number">1</span>, <span class="literal">false</span>, <span class="number">2</span>, <span class="string">''</span>, <span class="number">3</span>]));</div><div class="line">=&gt; [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div></pre></td></tr></table></figure>
+<h4 id="flatten-array-shallow"><a href="#flatten-array-shallow" class="headerlink" title="_.flatten(array, [shallow])"></a>_.flatten(array, [shallow])</h4><blockquote>
+<p>将一个嵌套多层的数组 array（数组） (嵌套可以是任何层数)转换为只有一层的数组。 如果你传递 shallow参数，数组将只减少一维的嵌套。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">console</span>.log(_.flatten([<span class="number">1</span>, [<span class="number">2</span>], [<span class="number">3</span>, [[<span class="number">4</span>]]]]));</div><div class="line">    =&gt; [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</div><div class="line"> </div><div class="line"><span class="built_in">console</span>.log(_.flatten([<span class="number">1</span>, [<span class="number">2</span>], [<span class="number">3</span>, [[<span class="number">4</span>]]]], <span class="literal">true</span>));</div><div class="line">    =&gt; [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, [[<span class="number">4</span>]]];</div></pre></td></tr></table></figure>
+<h3 id="范围整数数组"><a href="#范围整数数组" class="headerlink" title="范围整数数组"></a>范围整数数组</h3><h4 id="range-start-stop-step"><a href="#range-start-stop-step" class="headerlink" title="_.range([start], stop, [step])"></a>_.range([start], stop, [step])</h4><blockquote>
+<p>一个用来创建整数灵活编号的列表的函数，便于each 和 map循环。</p>
+<p>如果省略start则默认为 0；step 默认为 1.返回一个从start 到stop的整数的列表，用step来增加 （或减少）独占。</p>
+<p>值得注意的是，如果stop值在start前面（也就是stop值小于start值），那么值域会被认为是零长度，而不是负增长。-如果你要一个负数的值域 ，请使用负数step.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">console</span>.log(_.range(<span class="number">10</span>));</div><div class="line">    =&gt; [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</div><div class="line"><span class="built_in">console</span>.log(_.range(<span class="number">1</span>, <span class="number">11</span>));</div><div class="line">    =&gt; [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>]</div><div class="line"><span class="built_in">console</span>.log(_.range(<span class="number">0</span>, <span class="number">30</span>, <span class="number">5</span>));</div><div class="line">    =&gt; [<span class="number">0</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">15</span>, <span class="number">20</span>, <span class="number">25</span>]</div><div class="line"><span class="built_in">console</span>.log(_.range(<span class="number">0</span>, <span class="number">-10</span>, <span class="number">-1</span>));</div><div class="line">    =&gt; [<span class="number">0</span>, <span class="number">-1</span>, <span class="number">-2</span>, <span class="number">-3</span>, <span class="number">-4</span>, <span class="number">-5</span>, <span class="number">-6</span>, <span class="number">-7</span>, <span class="number">-8</span>, <span class="number">-9</span>]</div><div class="line"><span class="built_in">console</span>.log(_.range(<span class="number">0</span>));</div><div class="line">    =&gt; []</div></pre></td></tr></table></figure>
+<h3 id="合并和转换"><a href="#合并和转换" class="headerlink" title="合并和转换"></a>合并和转换</h3><h4 id="zip-arrays"><a href="#zip-arrays" class="headerlink" title="_.zip(*arrays)"></a>_.zip(*arrays)</h4><blockquote>
+<p>将每个arrays中相应位置的值合并在一起。在合并分开保存的数据时很有用. 如果你用来处理矩阵嵌套数组时, _.zip.apply 可以做类似的效果。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">console</span>.log(_.zip([<span class="string">'moe'</span>, <span class="string">'larry'</span>, <span class="string">'curly'</span>], [<span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>], [<span class="literal">true</span>, <span class="literal">false</span>, <span class="literal">false</span>]));</div><div class="line"></div><div class="line">=&gt; [[<span class="string">"moe"</span>, <span class="number">30</span>, <span class="literal">true</span>], [<span class="string">"larry"</span>, <span class="number">40</span>, <span class="literal">false</span>], [<span class="string">"curly"</span>, <span class="number">50</span>, <span class="literal">false</span>]]</div></pre></td></tr></table></figure>
+<h4 id="object-list-values"><a href="#object-list-values" class="headerlink" title="_.object(list, [values])"></a>_.object(list, [values])</h4><blockquote>
+<p>将数组转换为对象。传递任何一个单独[key, value]对的列表，或者一个键的列表和一个值得列表。 如果存在重复键，最后一个值将被返回。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">console</span>.log(_.object([<span class="string">'moe'</span>, <span class="string">'larry'</span>, <span class="string">'curly'</span>,<span class="string">'moe'</span>], [<span class="number">35</span>, <span class="number">40</span>, <span class="number">50</span>,<span class="number">30</span>]));</div><div class="line">    =&gt; &#123;<span class="attr">moe</span>: <span class="number">30</span>, <span class="attr">larry</span>: <span class="number">40</span>, <span class="attr">curly</span>: <span class="number">50</span>&#125;</div><div class="line"> </div><div class="line"><span class="built_in">console</span>.log(_.object([[<span class="string">'moe'</span>, <span class="number">30</span>], [<span class="string">'larry'</span>, <span class="number">40</span>], [<span class="string">'curly'</span>, <span class="number">50</span>]]));</div><div class="line">    =&gt; &#123;<span class="attr">moe</span>: <span class="number">30</span>, <span class="attr">larry</span>: <span class="number">40</span>, <span class="attr">curly</span>: <span class="number">50</span>&#125;</div></pre></td></tr></table></figure>
+<h2 id="函数部分"><a href="#函数部分" class="headerlink" title="函数部分"></a>函数部分</h2><h3 id="绑定函数"><a href="#绑定函数" class="headerlink" title="绑定函数"></a>绑定函数</h3><h4 id="bind"><a href="#bind" class="headerlink" title="bind:"></a>bind:</h4><blockquote>
+<p>绑定函数到对象上, 无论何时函数被调用, 函数里的this都指向对象.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span>(<span class="params">greeting</span>)</span>&#123; <span class="keyword">return</span> greeting + <span class="string">': '</span> + <span class="keyword">this</span>.name &#125;;</div><div class="line">func = _.bind(func, &#123;<span class="attr">name</span> : <span class="string">'moe'</span>&#125;, <span class="string">'hi'</span>);</div><div class="line"><span class="built_in">console</span>.log(func());</div><div class="line">=&gt; hi: moe</div></pre></td></tr></table></figure>
+<h4 id="bindAll"><a href="#bindAll" class="headerlink" title="bindAll:"></a>bindAll:</h4><blockquote>
+<p>绑定方法名到对象上, 当这些方法被执行时将在对象的上下文执行. 绑定函数用作事件处理时非常方便, 否则函数调用时 this 关键字根本没什么用.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">		         </div><div class="line">   <span class="keyword">var</span> buttonView = &#123;</div><div class="line">    <span class="attr">label</span>   : <span class="string">'underscore'</span>,</div><div class="line">    <span class="attr">onClick</span> : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="built_in">console</span>.log(<span class="string">'clicked: '</span> + <span class="keyword">this</span>.label); &#125;,</div><div class="line">    <span class="attr">onHover</span> : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="built_in">console</span>.log(<span class="string">'hovering: '</span> + <span class="keyword">this</span>.label); &#125;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> func  = _.bindAll(buttonView, <span class="string">'onClick'</span>, <span class="string">'onHover'</span>);</div><div class="line">func.onClick();</div><div class="line">=&gt; clicked: underscore</div></pre></td></tr></table></figure>
+<h3 id="填充数据"><a href="#填充数据" class="headerlink" title="填充数据"></a>填充数据</h3><h4 id="partial"><a href="#partial" class="headerlink" title="partial:"></a>partial:</h4><blockquote>
+<p>局部应用一个函数填充在任意个数的 arguments，不改变其动态this值。和bind方法很相近。你可以传递_ 给arguments列表来指定一个不预先填充，但在调用时提供的参数。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123; <span class="keyword">return</span> a + b; &#125;;</div><div class="line">add5 = _.partial(add, <span class="number">5</span>);</div><div class="line"><span class="built_in">console</span>.log(add5(<span class="number">10</span>));</div><div class="line">=&gt; <span class="number">15</span></div></pre></td></tr></table></figure>
+<h3 id="记忆函数"><a href="#记忆函数" class="headerlink" title="记忆函数"></a>记忆函数</h3><p>绑定函数</p>
+<h4 id="memoize-function-hashFunction"><a href="#memoize-function-hashFunction" class="headerlink" title="_.memoize(function, [hashFunction])"></a>_.memoize(function, [hashFunction])</h4><blockquote>
+<p>Memoizes方法可以缓存某函数的计算结果。对于耗时较长的计算是很有帮助的。</p>
+<p>如果传递了 hashFunction 参数，就用 hashFunction 的返回值作为key存储函数的计算结果。</p>
+<p>hashFunction 默认使用function的第一个参数作为key。memoized值的缓存可作为返回函数的cache属性。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> fibonacci = _.memoize(<span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> n &lt; <span class="number">2</span> ? n: fibonacci(n - <span class="number">1</span>) + fibonacci(n - <span class="number">2</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(fibonacci(<span class="number">30</span>));</div></pre></td></tr></table></figure>
+<h3 id="delay-和-defer"><a href="#delay-和-defer" class="headerlink" title="delay 和 defer"></a>delay 和 defer</h3><p>delay:</p>
+<blockquote>
+<p>在等待xx毫秒之后调用函数，类似于setTimeout</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> log = _.bind(<span class="built_in">console</span>.log, <span class="built_in">console</span>);</div><div class="line">_.delay(log, <span class="number">1000</span>, <span class="string">'sleep 1s'</span>);</div><div class="line">=&gt; sleep <span class="number">1</span>s</div></pre></td></tr></table></figure>
+<p>defer:</p>
+<blockquote>
+<p>延迟调用函数, 直到当前调用栈被清空为止, 跟使用 setTimeout 赋予0毫秒的延时很像。</p>
+<p>对执行高消耗算法或大型HTML呈现而不阻碍UI更新线程很有用.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">_.defer(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="built_in">console</span>.log(<span class="string">'deferred'</span>); &#125;);</div><div class="line"> =&gt; deferred</div></pre></td></tr></table></figure>
+<h3 id="after-和-before"><a href="#after-和-before" class="headerlink" title="after 和 before"></a>after 和 before</h3><h4 id="after-count-function"><a href="#after-count-function" class="headerlink" title="_.after(count, function)"></a>_.after(count, function)</h4><blockquote>
+<p>对循环计数，只有超过计数，才会调用指定的函数</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> nums = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</div><div class="line"><span class="keyword">var</span> renderNums = _.after(nums.length, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'render nums'</span>);</div><div class="line">&#125;);</div><div class="line">_.each(nums, <span class="function"><span class="keyword">function</span>(<span class="params">num</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'each:'</span>+num);</div><div class="line">    renderNums();</div><div class="line">&#125;);</div><div class="line">=&gt; each:<span class="number">1</span></div><div class="line">each:<span class="number">2</span></div><div class="line">each:<span class="number">3</span></div><div class="line">each:<span class="number">4</span></div><div class="line">render nums</div></pre></td></tr></table></figure>
+<h4 id="before-count-function"><a href="#before-count-function" class="headerlink" title="_.before(count, function)"></a>_.before(count, function)</h4><blockquote>
+<p>创建一个函数,调用不超过count 次。 当count已经达到时，最后一个函数调用的结果将被记住并返回。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> monthlyMeeting = _.before(<span class="number">3</span>, askForRaise);</div><div class="line">monthlyMeeting();</div><div class="line">monthlyMeeting();</div><div class="line">monthlyMeeting();</div></pre></td></tr></table></figure>
+<h3 id="函数传递"><a href="#函数传递" class="headerlink" title="函数传递"></a>函数传递</h3><h4 id="wrap-function-wrapper"><a href="#wrap-function-wrapper" class="headerlink" title="_.wrap(function, wrapper)"></a>_.wrap(function, wrapper)</h4><blockquote>
+<p>将第一个函数 function 封装到函数 wrapper 里面, 并把函数 function 作为第一个参数传给 wrapper. 这样可以让 wrapper 在 function 运行之前和之后 执行代码, 调整参数然后附有条件地执行.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> hello = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123; <span class="keyword">return</span> <span class="string">"hello: "</span> + name; &#125;;</div><div class="line">hello = _.wrap(hello, <span class="function"><span class="keyword">function</span>(<span class="params">func</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="string">"before, "</span> + func(<span class="string">"moe"</span>) + <span class="string">", after"</span>;</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.log(hello());</div><div class="line">=&gt; <span class="string">'before, hello: moe, after'</span></div></pre></td></tr></table></figure>
+<h2 id="对象部分"><a href="#对象部分" class="headerlink" title="对象部分"></a>对象部分</h2><h3 id="keys-和-values"><a href="#keys-和-values" class="headerlink" title="keys 和 values"></a>keys 和 values</h3><h4 id="keys-object"><a href="#keys-object" class="headerlink" title="_.keys(object)"></a>_.keys(object)</h4><blockquote>
+<p>检索object拥有的所有可枚举属性的名称。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">console</span>.log(_.keys(&#123;<span class="attr">one</span>: <span class="number">1</span>, <span class="attr">two</span>: <span class="number">2</span>, <span class="attr">three</span>: <span class="number">3</span>&#125;));</div><div class="line">=&gt; [<span class="string">"one"</span>, <span class="string">"two"</span>, <span class="string">"three"</span>]</div><div class="line">_.allKeys(object)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>检索object拥有的和继承的所有属性的名称。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Stooge</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = name;</div><div class="line">&#125;</div><div class="line">Stooge.prototype.silly = <span class="literal">true</span>;</div><div class="line"><span class="built_in">console</span>.log(_.allKeys(<span class="keyword">new</span> Stooge(<span class="string">"Moe"</span>)));</div><div class="line">=&gt; [<span class="string">"name"</span>, <span class="string">"silly"</span>]</div></pre></td></tr></table></figure>
+<h4 id="values-object"><a href="#values-object" class="headerlink" title="_.values(object)"></a>_.values(object)</h4><blockquote>
+<p>返回object对象所有的属性值。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">console</span>.log(_.values(&#123;<span class="attr">one</span>: <span class="number">1</span>, <span class="attr">two</span>: <span class="number">2</span>, <span class="attr">three</span>: <span class="number">3</span>&#125;));</div><div class="line">   =&gt; [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div></pre></td></tr></table></figure>
+<h3 id="对象遍历"><a href="#对象遍历" class="headerlink" title="对象遍历"></a>对象遍历</h3><h4 id="mapObject-object-iteratee-context"><a href="#mapObject-object-iteratee-context" class="headerlink" title="_.mapObject(object, iteratee, [context])"></a>_.mapObject(object, iteratee, [context])</h4><blockquote>
+<p>它类似于map，但是这用于对象。转换每个属性的值。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">console</span>.log(_.mapObject(&#123;<span class="attr">start</span>: <span class="number">5</span>, <span class="attr">end</span>: <span class="number">12</span>&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">val, key</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> val + <span class="number">5</span>;</div><div class="line">&#125;));</div><div class="line">=&gt; &#123;<span class="attr">start</span>: <span class="number">10</span>, <span class="attr">end</span>: <span class="number">17</span>&#125;</div></pre></td></tr></table></figure>
+<p>转换和对调</p>
+<h4 id="pairs-object"><a href="#pairs-object" class="headerlink" title="_.pairs(object)"></a>_.pairs(object)</h4><blockquote>
+<p>把一个对象转变为一个[key, value]形式的数组。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">console</span>.log(_.pairs(&#123;<span class="attr">one</span>: <span class="number">1</span>, <span class="attr">two</span>: <span class="number">2</span>, <span class="attr">three</span>: <span class="number">3</span>&#125;));</div><div class="line">=&gt; [[<span class="string">"one"</span>, <span class="number">1</span>], [<span class="string">"two"</span>, <span class="number">2</span>], [<span class="string">"three"</span>, <span class="number">3</span>]]</div></pre></td></tr></table></figure>
+<h4 id="invert-object"><a href="#invert-object" class="headerlink" title="_.invert(object)"></a>_.invert(object)</h4><blockquote>
+<p>返回一个object副本，使其键（keys）和值（values）对换。对于这个操作，必须确保object里所有的值都是唯一的且可以序列号成字符串.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">console</span>.log(_.invert(&#123;<span class="attr">Moe</span>: <span class="string">"Moses"</span>, <span class="attr">Larry</span>: <span class="string">"Louis"</span>, <span class="attr">Curly</span>: <span class="string">"Jerome"</span>&#125;));</div><div class="line">    =&gt; &#123;<span class="attr">Moses</span>: <span class="string">"Moe"</span>, <span class="attr">Louis</span>: <span class="string">"Larry"</span>, <span class="attr">Jerome</span>: <span class="string">"Curly"</span>&#125;;</div></pre></td></tr></table></figure>
+<h3 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h3><h4 id="extend"><a href="#extend" class="headerlink" title="extend:"></a>extend:</h4><blockquote>
+<p>复制对象的所有属性到目标对象上，覆盖已有属性</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">console</span>.log(</div><div class="line">    _.extend(&#123;<span class="attr">name</span> : <span class="string">'moe'</span>,<span class="attr">age</span>:<span class="number">45</span>&#125;, &#123;<span class="attr">age</span> : <span class="number">50</span>&#125;)</div><div class="line">);</div><div class="line">=&gt; &#123; <span class="attr">name</span>: <span class="string">'moe'</span>, <span class="attr">age</span>: <span class="number">50</span> &#125;</div></pre></td></tr></table></figure>
+<h4 id="defaults"><a href="#defaults" class="headerlink" title="defaults:"></a>defaults:</h4><blockquote>
+<p>复制对象的所有属性到目标对象上，跳过已有属性</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> iceCream = &#123;<span class="attr">flavor</span> : <span class="string">"chocolate"</span>&#125;;</div><div class="line"><span class="built_in">console</span>.log(</div><div class="line">    _.defaults(iceCream, &#123;<span class="attr">flavor</span> : <span class="string">"vanilla"</span>, <span class="attr">sprinkles</span> : <span class="string">"lots"</span>&#125;)</div><div class="line">);</div><div class="line">=&gt; &#123; <span class="attr">flavor</span>: <span class="string">'chocolate'</span>, <span class="attr">sprinkles</span>: <span class="string">'lots'</span> &#125;</div></pre></td></tr></table></figure>
+<h3 id="clone"><a href="#clone" class="headerlink" title="clone:"></a>clone:</h3><blockquote>
+<p>引入方式克隆对象，不进行复制</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">console</span>.log(</div><div class="line">   _.clone(&#123;<span class="attr">name</span> : <span class="string">'moe'</span>&#125;)</div><div class="line">);</div><div class="line">=&gt; &#123;<span class="attr">name</span> : <span class="string">'moe'</span>&#125;;</div></pre></td></tr></table></figure>
+<h3 id="tag"><a href="#tag" class="headerlink" title="tag:"></a>tag:</h3><blockquote>
+<p>用对象作为参数来调用函数，作为函数链式调用的一环</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">console</span>.log(</div><div class="line">    _.chain([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">200</span>])</div><div class="line">        .filter(<span class="function"><span class="keyword">function</span>(<span class="params">num</span>) </span>&#123; <span class="keyword">return</span> num % <span class="number">2</span> == <span class="number">0</span>; &#125;)</div><div class="line">        .tap(<span class="built_in">console</span>.log)</div><div class="line">        .map(<span class="function"><span class="keyword">function</span>(<span class="params">num</span>) </span>&#123; <span class="keyword">return</span> num * num &#125;)</div><div class="line">        .value()</div><div class="line">);</div><div class="line">=&gt; [ <span class="number">2</span>, <span class="number">200</span> ]</div><div class="line">[ <span class="number">4</span>, <span class="number">40000</span> ]</div></pre></td></tr></table></figure>
+<h3 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h3><h4 id="isEqual-object-other"><a href="#isEqual-object-other" class="headerlink" title="_.isEqual(object, other)"></a>_.isEqual(object, other)</h4><blockquote>
+<p>执行两个对象之间的优化深度比较，确定他们是否应被视为相等。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">    <span class="keyword">var</span> stooge = &#123;<span class="attr">name</span>: <span class="string">'moe'</span>, <span class="attr">luckyNumbers</span>: [<span class="number">13</span>, <span class="number">27</span>, <span class="number">34</span>]&#125;;</div><div class="line">    <span class="keyword">var</span> clone  = &#123;<span class="attr">name</span>: <span class="string">'moe'</span>, <span class="attr">luckyNumbers</span>: [<span class="number">13</span>, <span class="number">27</span>, <span class="number">34</span>]&#125;;</div><div class="line">    <span class="built_in">console</span>.log(stooge == clone);</div><div class="line">    =&gt; <span class="literal">false</span></div><div class="line"><span class="built_in">console</span>.log(_.isEqual(stooge, clone));</div><div class="line">    =&gt; <span class="literal">true</span></div></pre></td></tr></table></figure>
+<h2 id="实用功能"><a href="#实用功能" class="headerlink" title="实用功能"></a>实用功能</h2><h3 id="改变命名空间"><a href="#改变命名空间" class="headerlink" title="改变命名空间"></a>改变命名空间</h3><blockquote>
+<p>Underscore默认使用_（下划线）来访问和创建对象，但这个名字可能不符合我们的命名规范，或容易引起命名冲突。</p>
+</blockquote>
+<h4 id="noConflict"><a href="#noConflict" class="headerlink" title="_.noConflict()"></a>_.noConflict()</h4><blockquote>
+<p>我们可以通过noConflict()方法来改变Underscore的命名，并恢复_（下划线）变量之前的值，例如：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//Underscore对象  </span></div><div class="line">    <span class="built_in">console</span>.dir(_);  </div><div class="line">     将Underscore对象重命名为us, 后面都通过us来访问和创建Underscore对象  </div><div class="line">    <span class="keyword">var</span> us = _.noConflict();  </div><div class="line">     输出<span class="string">"自定义变量"</span>  </div><div class="line">    <span class="built_in">console</span>.dir(_);</div></pre></td></tr></table></figure>
+<p>随机数                       </p>
+<h4 id="random-min-max"><a href="#random-min-max" class="headerlink" title="_.random(min, max)"></a>_.random(min, max)</h4><blockquote>
+<p>返回一个min 和 max之间的随机整数。如果你只传递一个参数，那么将返回0和这个参数之间的整数。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"> <span class="built_in">console</span>.log(_.random(<span class="number">0</span>, <span class="number">100</span>));</div><div class="line">=&gt; <span class="number">42</span></div></pre></td></tr></table></figure>
+<p>唯一ID</p>
+<h4 id="uniqueId-prefix"><a href="#uniqueId-prefix" class="headerlink" title="_.uniqueId([prefix])"></a>_.uniqueId([prefix])</h4><blockquote>
+<p>为需要的客户端模型或DOM元素生成一个全局唯一的id。如果prefix参数存在， id 将附加给它。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">console</span>.log(_.uniqueId(<span class="string">'contact_1'</span>));</div><div class="line">=&gt; <span class="string">'contact_104'</span></div></pre></td></tr></table></figure>
+<p>扩展</p>
+<blockquote>
+<p>允许用您自己的实用程序函数扩展Underscore。传递一个 {name: function}定义的哈希添加到Underscore对象，以及面向对象封装。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">_.mixin(&#123;</div><div class="line">    <span class="attr">capitalize</span> : <span class="function"><span class="keyword">function</span>(<span class="params">string</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> string.charAt(<span class="number">0</span>).toUpperCase() + string.substring(<span class="number">1</span>).toLowerCase();</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.log(_(<span class="string">"fabio"</span>).capitalize());</div><div class="line">=&gt; Fabio</div></pre></td></tr></table></figure>
+<p>返回属性值</p>
+<h4 id="result-object-property-defaultValue"><a href="#result-object-property-defaultValue" class="headerlink" title="_.result(object, property, [defaultValue])"></a>_.result(object, property, [defaultValue])</h4><blockquote>
+<p>如果指定的 property 的值是一个函数，那么将在object上下文内调用它;否则，返回它。</p>
+<p>如果提供默认值，并且属性不存在，那么默认值将被返回。如果设置defaultValue是一个函数，它的结果将被返回。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> object = &#123;<span class="attr">cheese</span>: <span class="string">'crumpets'</span>, <span class="attr">stuff</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="keyword">return</span> <span class="string">'nonsense'</span>; &#125;&#125;;</div><div class="line"><span class="built_in">console</span>.log(_.result(object, <span class="string">'cheese'</span>));</div><div class="line">=&gt; <span class="string">"crumpets"</span></div><div class="line">_.result(object, <span class="string">'stuff'</span>);</div><div class="line">=&gt; <span class="string">"nonsense"</span></div><div class="line">_.result(object, <span class="string">'meat'</span>, <span class="string">'ham'</span>);</div><div class="line">=&gt; <span class="string">"ham"</span></div></pre></td></tr></table></figure>
+<h2 id="链式语法"><a href="#链式语法" class="headerlink" title="链式语法"></a>链式语法</h2><h3 id="chain"><a href="#chain" class="headerlink" title="chain"></a>chain</h3><blockquote>
+<p>如果你用过jQuery，那么应该对链式操作非常熟悉了。链式操作写起来非常顺畅，代码也会非常的语义化。</p>
+<p>Underscore.js中也支持将代码写成链式的，API为chain，chain返回的是一个包装过的underscore对象，到链结束的时候，需要调用value来获取最终的结果：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> stooges = [&#123;<span class="attr">name</span>: <span class="string">'curly'</span>, <span class="attr">age</span>: <span class="number">25</span>&#125;, &#123;<span class="attr">name</span>: <span class="string">'moe'</span>, <span class="attr">age</span>: <span class="number">21</span>&#125;, &#123;<span class="attr">name</span>: <span class="string">'larry'</span>, <span class="attr">age</span>: <span class="number">23</span>&#125;];</div><div class="line"><span class="keyword">var</span> youngest = _.chain(stooges)</div><div class="line">  .sortBy(<span class="function"><span class="keyword">function</span>(<span class="params">stooge</span>)</span>&#123; <span class="keyword">return</span> stooge.age; &#125;)</div><div class="line">  .map(<span class="function"><span class="keyword">function</span>(<span class="params">stooge</span>)</span>&#123; <span class="keyword">return</span> stooge.name + <span class="string">' is '</span> + stooge.age; &#125;)</div><div class="line">  .first()</div><div class="line">  .value();</div><div class="line"><span class="built_in">console</span>.log(youngest);</div><div class="line">=&gt; <span class="string">"moe is 21"</span></div></pre></td></tr></table></figure>
+<h3 id="value"><a href="#value" class="headerlink" title="value"></a>value</h3><h4 id="obj-value"><a href="#obj-value" class="headerlink" title="_(obj).value()"></a>_(obj).value()</h4><blockquote>
+<p>获取封装对象的最终值.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> value = _([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]).value();</div><div class="line"><span class="built_in">console</span>.log(value);</div><div class="line">=&gt; [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div></pre></td></tr></table></figure>
+<blockquote>
+<p>在使用Underscore.js提供的众多API之后，我们自己也是可以写出非常简洁，表意的代码来，是不是很有成就感。</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/blog/uploads/wechat-qcode.jpg" alt="qixianchuan wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>欣赏此文？求鼓励，求支持，加我微信吧</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/blog/uploads/psb.jpg" alt="qixianchuan WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/blog/uploads/psb.jpg" alt="qixianchuan Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2017/02/13/2017-02-13/" rel="next" title="VMware-所有版本永久许可证秘钥">
+                <i class="fa fa-chevron-left"></i> VMware-所有版本永久许可证秘钥
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2017/04/24/sasslearning/" rel="prev" title="Sass learning (汇智网 sass课程)">
+                Sass learning (汇智网 sass课程) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/04/24/Underscorelearning/"
+           data-title="Underscore learning (汇智网 underscore课程)" data-url="http://www.qishengpeng.com/blog/blog/2017/04/24/Underscorelearning/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/blog/uploads/avatar.png"
+               alt="qixianchuan" />
+          <p class="site-author-name" itemprop="name">qixianchuan</p>
+          <p class="site-description motion-element" itemprop="description">为学。天下事有难易乎？为之，则难者亦易矣；不为，则易者亦难矣。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/blog/archives">
+              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/qipengju" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://douban.com/people/your-user-name" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/your-user-name" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              我的个人小站
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.qishengpeng.com/" title="个人站点" target="_blank">个人站点</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Underscore快速入门"><span class="nav-number">1.</span> <span class="nav-text">Underscore快速入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Underscore？"><span class="nav-number">1.1.</span> <span class="nav-text">什么是Underscore？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#课程简述"><span class="nav-number">1.3.</span> <span class="nav-text">课程简述</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集合部分（数组或对象）"><span class="nav-number">2.</span> <span class="nav-text">集合部分（数组或对象）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历"><span class="nav-number">2.1.</span> <span class="nav-text">遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#each-list-iteratee-context"><span class="nav-number">2.1.1.</span> <span class="nav-text">_.each(list, iteratee, [context])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#map-list-iteratee-context"><span class="nav-number">2.1.2.</span> <span class="nav-text">_.map(list, iteratee, [context])</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元素合并"><span class="nav-number">2.2.</span> <span class="nav-text">元素合并</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#reduce-reduce-list-iteratee-memo-context"><span class="nav-number">2.2.1.</span> <span class="nav-text">reduce_.reduce(list, iteratee, [memo], [context])</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找和过滤"><span class="nav-number">2.3.</span> <span class="nav-text">查找和过滤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#find-find-list-predicate-context"><span class="nav-number">2.3.1.</span> <span class="nav-text">find_.find(list, predicate, [context])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filter-list-predicate-context"><span class="nav-number">2.3.2.</span> <span class="nav-text">_.filter(list, predicate, [context])</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#过滤"><span class="nav-number">2.4.</span> <span class="nav-text">过滤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#where-list-properties"><span class="nav-number">2.4.1.</span> <span class="nav-text">_.where(list, properties)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断和提取"><span class="nav-number">2.5.</span> <span class="nav-text">判断和提取</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#contains-list-value-fromIndex"><span class="nav-number">2.5.1.</span> <span class="nav-text">_.contains(list, value, [fromIndex])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pluck-list-propertyName"><span class="nav-number">2.5.2.</span> <span class="nav-text">_.pluck(list, propertyName)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断最大最小值"><span class="nav-number">2.6.</span> <span class="nav-text">判断最大最小值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#max-list-iteratee-context"><span class="nav-number">2.6.1.</span> <span class="nav-text">_.max(list, [iteratee], [context])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#min-list-iteratee-context"><span class="nav-number">2.6.2.</span> <span class="nav-text">_.min(list, [iteratee], [context])</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sortBy-排序"><span class="nav-number">2.7.</span> <span class="nav-text">sortBy 排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#sortBy-list-iteratee-context"><span class="nav-number">2.7.1.</span> <span class="nav-text">_.sortBy(list, iteratee, [context])</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转换和获取个数"><span class="nav-number">2.8.</span> <span class="nav-text">转换和获取个数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#toArray-list"><span class="nav-number">2.8.1.</span> <span class="nav-text">_.toArray(list)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#size-list"><span class="nav-number">2.8.2.</span> <span class="nav-text">_.size(list)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组部分"><span class="nav-number">3.</span> <span class="nav-text">数组部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#元素位置操作"><span class="nav-number">3.1.</span> <span class="nav-text">元素位置操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#first-array-n"><span class="nav-number">3.1.1.</span> <span class="nav-text">_.first(array, [n])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#initial-array-n"><span class="nav-number">3.1.2.</span> <span class="nav-text">_.initial(array, [n])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#last-array-n"><span class="nav-number">3.1.3.</span> <span class="nav-text">_.last(array, [n])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rest-array-index"><span class="nav-number">3.1.4.</span> <span class="nav-text">_.rest(array, [index])</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取索引位置"><span class="nav-number">3.2.</span> <span class="nav-text">获取索引位置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#indexOf-array-value-isSorted"><span class="nav-number">3.2.1.</span> <span class="nav-text">_.indexOf(array, value, [isSorted])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lastIndexOf-array-value-fromIndex"><span class="nav-number">3.2.2.</span> <span class="nav-text">_.lastIndexOf(array, value, [fromIndex])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sortedIndex-list-value-iteratee-context"><span class="nav-number">3.2.3.</span> <span class="nav-text">_.sortedIndex(list, value, [iteratee], [context])</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#去除空值和嵌套"><span class="nav-number">3.3.</span> <span class="nav-text">去除空值和嵌套</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#compact-array"><span class="nav-number">3.3.1.</span> <span class="nav-text">_.compact(array)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flatten-array-shallow"><span class="nav-number">3.3.2.</span> <span class="nav-text">_.flatten(array, [shallow])</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#范围整数数组"><span class="nav-number">3.4.</span> <span class="nav-text">范围整数数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#range-start-stop-step"><span class="nav-number">3.4.1.</span> <span class="nav-text">_.range([start], stop, [step])</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合并和转换"><span class="nav-number">3.5.</span> <span class="nav-text">合并和转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#zip-arrays"><span class="nav-number">3.5.1.</span> <span class="nav-text">_.zip(*arrays)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#object-list-values"><span class="nav-number">3.5.2.</span> <span class="nav-text">_.object(list, [values])</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数部分"><span class="nav-number">4.</span> <span class="nav-text">函数部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#绑定函数"><span class="nav-number">4.1.</span> <span class="nav-text">绑定函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#bind"><span class="nav-number">4.1.1.</span> <span class="nav-text">bind:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bindAll"><span class="nav-number">4.1.2.</span> <span class="nav-text">bindAll:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#填充数据"><span class="nav-number">4.2.</span> <span class="nav-text">填充数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#partial"><span class="nav-number">4.2.1.</span> <span class="nav-text">partial:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#记忆函数"><span class="nav-number">4.3.</span> <span class="nav-text">记忆函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#memoize-function-hashFunction"><span class="nav-number">4.3.1.</span> <span class="nav-text">_.memoize(function, [hashFunction])</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#delay-和-defer"><span class="nav-number">4.4.</span> <span class="nav-text">delay 和 defer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#after-和-before"><span class="nav-number">4.5.</span> <span class="nav-text">after 和 before</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#after-count-function"><span class="nav-number">4.5.1.</span> <span class="nav-text">_.after(count, function)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#before-count-function"><span class="nav-number">4.5.2.</span> <span class="nav-text">_.before(count, function)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数传递"><span class="nav-number">4.6.</span> <span class="nav-text">函数传递</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#wrap-function-wrapper"><span class="nav-number">4.6.1.</span> <span class="nav-text">_.wrap(function, wrapper)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象部分"><span class="nav-number">5.</span> <span class="nav-text">对象部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#keys-和-values"><span class="nav-number">5.1.</span> <span class="nav-text">keys 和 values</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#keys-object"><span class="nav-number">5.1.1.</span> <span class="nav-text">_.keys(object)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#values-object"><span class="nav-number">5.1.2.</span> <span class="nav-text">_.values(object)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象遍历"><span class="nav-number">5.2.</span> <span class="nav-text">对象遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#mapObject-object-iteratee-context"><span class="nav-number">5.2.1.</span> <span class="nav-text">_.mapObject(object, iteratee, [context])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pairs-object"><span class="nav-number">5.2.2.</span> <span class="nav-text">_.pairs(object)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#invert-object"><span class="nav-number">5.2.3.</span> <span class="nav-text">_.invert(object)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复制"><span class="nav-number">5.3.</span> <span class="nav-text">复制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#extend"><span class="nav-number">5.3.1.</span> <span class="nav-text">extend:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#defaults"><span class="nav-number">5.3.2.</span> <span class="nav-text">defaults:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#clone"><span class="nav-number">5.4.</span> <span class="nav-text">clone:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tag"><span class="nav-number">5.5.</span> <span class="nav-text">tag:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#比较"><span class="nav-number">5.6.</span> <span class="nav-text">比较</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#isEqual-object-other"><span class="nav-number">5.6.1.</span> <span class="nav-text">_.isEqual(object, other)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实用功能"><span class="nav-number">6.</span> <span class="nav-text">实用功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#改变命名空间"><span class="nav-number">6.1.</span> <span class="nav-text">改变命名空间</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#noConflict"><span class="nav-number">6.1.1.</span> <span class="nav-text">_.noConflict()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#random-min-max"><span class="nav-number">6.1.2.</span> <span class="nav-text">_.random(min, max)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#uniqueId-prefix"><span class="nav-number">6.1.3.</span> <span class="nav-text">_.uniqueId([prefix])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#result-object-property-defaultValue"><span class="nav-number">6.1.4.</span> <span class="nav-text">_.result(object, property, [defaultValue])</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链式语法"><span class="nav-number">7.</span> <span class="nav-text">链式语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#chain"><span class="nav-number">7.1.</span> <span class="nav-text">chain</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#value"><span class="nav-number">7.2.</span> <span class="nav-text">value</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#obj-value"><span class="nav-number">7.2.1.</span> <span class="nav-text">_(obj).value()</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">qixianchuan</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/blog/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"qixianchuan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/blog/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/blog/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/blog/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/blog/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/blog/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>
